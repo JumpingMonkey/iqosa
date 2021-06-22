@@ -104,7 +104,7 @@ class MemberController extends Controller
 //        $page = Header::first()
 //            ->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
 
-        $page = Preloader::first()->content;
+//        $page = Preloader::first()->content;
 
 //        $page = Footer::first()
 //            ->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
