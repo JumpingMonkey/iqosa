@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Member;
-use App\Models\Project;
+use App\Models\MemberModel;
+use App\Models\ProjectModel;
 use App\Services\Localization\LocalizationService;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('add', function () {
 
-    Member::create([
+    MemberModel::create([
         "name" => [
             "en" => "Vladimir",
             "ru" => "Владимир",
@@ -43,7 +43,7 @@ Route::get('add', function () {
         "parallax_photo" => "parallax photo link",
     ]);
 
-    Member::create([
+    MemberModel::create([
         "name" => [
             "en" => "Valera",
             "ru" => "Валера",
@@ -68,7 +68,7 @@ Route::get('add', function () {
         "parallax_photo" => "parallax photo link",
     ]);
 
-    Project::create([
+    ProjectModel::create([
       'seo_title' => ["en" => "1", "ru"=> "2", "uk"=> "3"],
       'meta_description' => ["en" => "1", "ru" => "2", "uk" => "3"],
       'type' => 2,
@@ -81,7 +81,7 @@ Route::get('add', function () {
       'country' => ["en" => "1", "ru" => "2", "uk" => "3"],
     ]);
 
-    Project::create([
+    ProjectModel::create([
       'seo_title' => ["en" => "12", "ru"=> "22", "uk"=> "32"],
       'meta_description' => ["en" => "12", "ru" => "22", "uk" => "32"],
       'type' => 22,

@@ -2,23 +2,25 @@
 
 namespace App\Nova;
 
+use App\Models\MemberModel;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class Project extends Resource
+class ProjectResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Project::class;
+    public static $model = \App\Models\ProjectModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -37,6 +39,11 @@ class Project extends Resource
     ];
 
     public static $group = 'Objects';
+
+    public static function label()
+    {
+        return 'Projects';
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -64,6 +71,14 @@ class Project extends Resource
             Text::make('Город', 'city')->sortable(),
             Text::make('Страна', 'country')->sortable(),
 
+            Flexible::make('Команда проекта', 'team_members')
+                ->addLayout('Сотрудник', 'member', [
+                    Select::make('Сотрудник', 'member')->options(
+                        MemberModel::all()->pluck('full_name', 'id')
+                    ),
+                ])
+                ->button('Добавить сотрудника'),
+
             Flexible::make('Контент', 'content')
                 ->addLayout('Большое изображение', 'big_image', [
                     MediaLibrary::make('Изображение', 'image')
@@ -84,7 +99,7 @@ class Project extends Resource
                     Text::make('Текст в центре галереи', 'center_text'),
                 ])->button('Добавить блок'),
 
-          BelongsToMany::make('Members'),
+//          BelongsToMany::make('Members'),
 
 
         ];

@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class Header extends Model
+class HeaderModel extends Model
 {
     use HasFactory, HasTranslations, HasMediaToUrl;
+
+    protected $table = "headers";
 
     protected $fillable = [
         'logo',

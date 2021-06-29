@@ -25,6 +25,7 @@ class CreateProjectsTable extends Migration
             $table->string('main_picture')->nullable();
             $table->json('city');
             $table->json('country');
+            $table->json('team_members');
             $table->text('content');
 
             $table->timestamps();

@@ -6,17 +6,18 @@ use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class ProjectsPage extends Resource
+class ContactsPageResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Pages\ProjectsPage::class;
+    public static $model = \App\Models\Pages\ContactsPageModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -38,7 +39,7 @@ class ProjectsPage extends Resource
 
     public static function label()
     {
-        return 'Projects';
+        return 'Contacts ';
     }
 
     /**
@@ -52,30 +53,18 @@ class ProjectsPage extends Resource
         return [
             Multilingual::make('Language'),
             ID::make(__('ID'), 'id')->sortable(),
+
             Text::make('SEO-заголовок', 'seo_title')->hideFromIndex(),
             Text::make('Мета-описание', 'meta_description')->hideFromIndex(),
 
-            Flexible::make('Заголовок', 'projects_title')
-                ->addLayout('Тонкий текст', 'thin_text', [
-                    Text::make('Текст', 'text'),
-                ])
-                ->addLayout('Толстый текст', 'bold_text', [
-                    Text::make('Текст', 'text'),
-                ])
-                ->button('Добавить линию заголовка'),
+            Trix::make('Адрес', 'address')->alwaysShow(),
 
-            Flexible::make('Подзаголовок', 'projects_subtitle')
-                ->addLayout('Линия подзаголовка', 'subtitle_line', [
-                    Text::make('Текст', 'text'),
-                ])
-                ->button('Добавить линию подзаголовка'),
+            Text::make('Координаты широты', 'latitude')->hideFromIndex(),
+            Text::make('Координаты долготы', 'longitude')->hideFromIndex(),
+            Text::make('Ссылка на карту', 'map_link')->hideFromIndex(),
 
-            Text::make('Текст кнопки "Блоки"', 'projects_block_text')->hideFromIndex(),
-            Text::make('Текст кнопки "Список"', 'projects_list_text')->hideFromIndex(),
-            Text::make('Текст для даты проекта', 'date_label')->hideFromIndex(),
-            Text::make('Текст для площади проекта', 'area_label')->hideFromIndex(),
-            Text::make('Эдиницы измерения площади', 'area_unit')->hideFromIndex(),
-
+            Text::make('Часть текста ссылки на карту (без анимации)', 'map_link_text')->hideFromIndex(),
+            Text::make('Часть текста ссылки на карту (с анимацией)', 'map_link_text-animated')->hideFromIndex(),
 
         ];
     }

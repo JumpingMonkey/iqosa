@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class MainPage extends Model
+class MainPageModel extends Model
 {
     use HasFactory, HasTranslations, HasMediaToUrl;
+
+    protected $table = "main_pages";
 
     protected $fillable = [
         'seo_title',

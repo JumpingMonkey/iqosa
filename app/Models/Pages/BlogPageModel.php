@@ -7,32 +7,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class ProjectsPage extends Model
+class BlogPageModel extends Model
 {
     use HasFactory, HasTranslations, HasMediaToUrl;
+
+    protected $table = "blog_pages";
 
     protected $fillable = [
         'seo_title',
         'meta_description',
-        'projects_title',
-        'projects_subtitle',
-        'projects_block_text',
-        'projects_list_text',
-        'date_label',
-        'area_label',
-        'area_unit',
+        'blog_title',
+        'blog_link_text',
+        'blog_link',
+        'blog_text',
+        'blog_btn_text'
     ];
 
     public $translatable = [
         'seo_title',
         'meta_description',
-        'projects_title',
-        'projects_subtitle',
-        'projects_block_text',
-        'projects_list_text',
-        'date_label',
-        'area_label',
-        'area_unit',
+        'blog_title',
+        'blog_link_text',
+        'blog_text',
+        'blog_btn_text'
     ];
 
 }

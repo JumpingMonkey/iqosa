@@ -2,8 +2,8 @@
 
 namespace App\Nova;
 
-use App\Models\Member;
-use App\Models\Project;
+use App\Models\MemberModel;
+use App\Models\ProjectModel;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Eminiarts\Tabs\Tab;
 use Eminiarts\Tabs\Tabs;
@@ -15,7 +15,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class MainPage extends Resource
+class MainPageResource extends Resource
 {
 
     use TabsOnEdit;
@@ -24,7 +24,7 @@ class MainPage extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\Pages\MainPage::class;
+    public static $model = \App\Models\Pages\MainPageModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -91,7 +91,7 @@ class MainPage extends Resource
                     Flexible::make('Проекты', 'projects')
                         ->addLayout('Проект', 'project', [
                             Select::make('Проект', 'project')->options(
-                                Project::pluck('link', 'id' )
+                                ProjectModel::pluck('link', 'id' )
                             ),
                         ])
                         ->button('Добавить проект'),
@@ -110,17 +110,25 @@ class MainPage extends Resource
                     Flexible::make('Команда проекта', 'team_members')
                         ->addLayout('Сотрудник', 'member', [
                             Select::make('Сотрудник', 'member')->options(
-                                Member::all()->pluck('full_name', 'id')
+                                MemberModel::all()->pluck('full_name', 'id')
                             ),
                         ])
                         ->button('Добавить сотрудника'),
 
+                    Flexible::make('Заголовок в центре', 'team_text')
+                        ->addLayout('Жирный текст', 'bold_text', [
+                            Text::make('Текст', 'text'),
+                        ])
+                        ->addLayout('Тонкий текст', 'thin_text', [
+                            Text::make('Текст', 'text'),
+                        ])
+                        ->button('Добавить строку'),
 
-
-                    Text::make('Заголовок в центре', 'team_text')->hideFromIndex(),
                     Text::make('Часть текста ссылки (с анимацией)', 'team_link_text_animated')->hideFromIndex(),
                     Text::make('Часть текста ссылки (без анимации)', 'team_link_text')->hideFromIndex(),
                     Text::make('Ссылка', 'team_link')->hideFromIndex(),
+
+
                 ])
             ])->withToolbar(),
         ];

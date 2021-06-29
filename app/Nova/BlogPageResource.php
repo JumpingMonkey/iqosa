@@ -2,22 +2,22 @@
 
 namespace App\Nova;
 
-use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class Preloader extends Resource
+class BlogPageResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Parts\Preloader::class;
+    public static $model = \App\Models\Pages\BlogPageModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,39 +35,47 @@ class Preloader extends Resource
         'id',
     ];
 
-    public static $group = 'Pages parts';
+    public static $group = 'Pages';
 
     public static function label()
     {
-        return 'Preloader';
+        return 'Blog';
     }
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function fields(Request $request)
     {
         return [
             Multilingual::make('Language'),
-
             ID::make(__('ID'), 'id')->sortable(),
 
-            Flexible::make('Контент прелоадера', 'content')
-                ->addLayout('Строка', 'string', [
+            Text::make('SEO-заголовок', 'seo_title')->hideFromIndex(),
+            Text::make('Мета-описание', 'meta_description')->hideFromIndex(),
 
-                    Trix::make('Текст', 'text')->alwaysShow()
+            Text::make('Заголовок', 'blog_title')->hideFromIndex(),
+            Text::make('Текст ссылки в заголовке', 'blog_link_text')->hideFromIndex(),
+            Text::make('Якорь ссылки в заголовке', 'blog_link')->hideFromIndex(),
 
-                ])->button('Добавить строку')
+            Flexible::make('Подзаголовок', 'blog_text')
+                ->addLayout('Строка', 'text_line', [
+                    Text::make('Текст', 'text'),
+                ])->button('Добавить строку'),
+
+
+            Trix::make('Текст ссылки на карточке новости', 'blog_btn_text')->alwaysShow(),
+
         ];
     }
 
     /**
      * Get the cards available for the request.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function cards(Request $request)
@@ -78,7 +86,7 @@ class Preloader extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function filters(Request $request)
@@ -89,7 +97,7 @@ class Preloader extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function lenses(Request $request)
@@ -100,7 +108,7 @@ class Preloader extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function actions(Request $request)

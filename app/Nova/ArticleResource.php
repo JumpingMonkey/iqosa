@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Models\ArticleModel;
 use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
@@ -11,14 +12,14 @@ use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class Article extends Resource
+class ArticleResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Article::class;
+    public static $model = ArticleModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -37,6 +38,11 @@ class Article extends Resource
     ];
 
     public static $group = 'Objects';
+
+    public static function label()
+    {
+        return 'Articles';
+    }
 
     /**
      * Get the fields displayed by the resource.

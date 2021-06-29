@@ -129,6 +129,7 @@
       <path value="$PROJECT_DIR$/vendor/whitecube/nova-flexible-content" />
       <path value="$PROJECT_DIR$/vendor/anrail/nova-media-library-tools" />
       <path value="$PROJECT_DIR$/vendor/eminiarts/nova-tabs" />
+      <path value="$PROJECT_DIR$/vendor/coderello/laravel-nova-lang" />
     </include_path>
   </component>
   <component name="PhpUnit">

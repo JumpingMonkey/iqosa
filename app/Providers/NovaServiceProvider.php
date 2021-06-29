@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Digitalcloud\MultilingualNova\NovaLanguageTool;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
@@ -78,7 +79,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         return [
-            new \ClassicO\NovaMediaLibrary\NovaMediaLibrary()
+            new \ClassicO\NovaMediaLibrary\NovaMediaLibrary(),
+            new NovaLanguageTool(),
         ];
     }
 

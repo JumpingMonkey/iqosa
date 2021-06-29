@@ -10,7 +10,7 @@ describe('UpdateAttached', () => {
         {
           uriKey: 'users',
           label: 'Users',
-          singularLabel: 'User',
+          singularLabel: 'UserResource',
           authorizedToCreate: true,
           searchable: false,
         },

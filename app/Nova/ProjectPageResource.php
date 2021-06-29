@@ -9,14 +9,14 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class ProjectPage extends Resource
+class ProjectPageResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Pages\ProjectPage::class;
+    public static $model = \App\Models\Pages\ProjectPageModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

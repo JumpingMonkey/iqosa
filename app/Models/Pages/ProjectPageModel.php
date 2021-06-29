@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class ProjectPage extends Model
+class ProjectPageModel extends Model
 {
     use HasFactory, HasTranslations, HasMediaToUrl;
+
+    protected $table = "project_pages";
 
     protected $fillable = [
         'date_label',

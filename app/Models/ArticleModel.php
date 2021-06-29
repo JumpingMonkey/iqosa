@@ -7,49 +7,36 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class Project extends Model
+class ArticleModel extends Model
 {
     use HasFactory, HasTranslations, HasMediaToUrl;
 
+    protected $table = "articles";
 
     protected $fillable = [
+        'title',
         'seo_title',
         'meta_description',
-        'type',
-        'number',
         'link',
-        'release_date',
-        'area',
         'main_picture',
-        'city',
-        'country',
+        'authors',
+        'subjects',
         'content',
     ];
 
     public $translatable = [
+        'title',
         'seo_title',
         'meta_description',
-        'city',
-        'country',
+        'authors',
+        'subjects',
         'content',
-        'members',
     ];
 
     public $mediaToUrl = [
         'main_picture',
         'content',
-        'image',
-        'first_image',
-        'second_image',
-        'third_image',
-        'fourth_image',
-        'members',
+        'picture',
     ];
-
-
-    public function members()
-    {
-        return $this->belongsToMany(Member::class);
-    }
 
 }

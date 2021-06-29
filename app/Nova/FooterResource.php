@@ -13,7 +13,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class Footer extends Resource
+class FooterResource extends Resource
 {
 
     use TabsOnEdit;
@@ -22,7 +22,7 @@ class Footer extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\Parts\Footer::class;
+    public static $model = \App\Models\Parts\FooterModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

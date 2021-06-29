@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2bced1a4-d3b6-402e-aa81-deed186f6223" name="iqosa" url="http://backiqosa.staj.fun">
+        <fileTransfer host="backiqosa.staj.fun" port="22" privateKey="C:\Users\admin_hp1\Desktop\23priv.ppk" rootFolder="/project/backiqosa.staj.fun" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

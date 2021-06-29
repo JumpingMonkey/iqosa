@@ -8,15 +8,16 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Whitecube\NovaFlexibleContent\Flexible;
 
-class Member extends Resource
+class AboutPlugPageResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Member::class;
+    public static $model = \App\Models\Pages\AboutPlugPageModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -25,21 +26,21 @@ class Member extends Resource
      */
     public static $title = 'id';
 
-    public static $group = 'Objects';
-
     /**
      * The columns that should be searched.
      *
      * @var array
      */
     public static $search = [
-        'id', 'name', 'surname', 'position',
+        'id',
     ];
 
-  public function title()
-  {
-    return $this->name . ' ' . $this->surname;
-  }
+    public static $group = 'Pages';
+
+    public static function label()
+    {
+        return 'About plug';
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -50,16 +51,33 @@ class Member extends Resource
     public function fields(Request $request)
     {
         return [
-
             Multilingual::make('Language'),
-
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Имя', 'name')->sortable()->rules('required'),
-            Text::make('Фамилия', 'surname')->sortable()->rules('required'),
-            Text::make('Должность', 'position')->sortable(),
-            Text::make('Описание', 'about')->hideFromIndex(),
-            MediaLibrary::make('Фото', 'photo')->hideFromIndex(),
-            MediaLibrary::make('Параллакс фото', 'parallax_photo')->hideFromIndex(),
+
+            Text::make('SEO-заголовок', 'seo_title')->hideFromIndex(),
+            Text::make('Мета-описание', 'meta_description')->hideFromIndex(),
+
+            Flexible::make('Заголовок', 'about_plug_title')
+                ->addLayout('Жирный текст', 'bold_text', [
+                    Text::make('Текст', 'text'),
+                ])
+                ->addLayout('Тонкий текст', 'thin_text', [
+                    Text::make('Текст', 'text'),
+                ])
+                ->button('Добавить строку'),
+
+            Flexible::make('Подзаголовок', 'blog_text')
+                ->addLayout('Строка', 'text_line', [
+                    Text::make('Текст', 'text'),
+                ])->button('Добавить строку'),
+
+            MediaLibrary::make('Изображение', 'about_plug_picture')->hideFromIndex(),
+
+            Flexible::make('Ссылки', 'about_plug_links')
+                ->addLayout('Ссылка', 'link', [
+                    Text::make('Текст ссылки', 'text'),
+                    Text::make('Якорь ссылки', 'link'),
+                ])->button('Добавить строку'),
         ];
     }
 

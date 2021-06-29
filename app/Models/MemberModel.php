@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class Member extends Model
+class MemberModel extends Model
 {
     use HasFactory, HasTranslations, HasMediaToUrl;
+
+    protected $table = "members";
 
     protected $fillable = [
         'name',
@@ -35,7 +37,7 @@ class Member extends Model
 
     public function projects()
     {
-        return $this->belongsToMany(Project::class);
+        return $this->belongsToMany(ProjectModel::class);
     }
 
     public function getFullNameAttribute()

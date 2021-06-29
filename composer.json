@@ -5,9 +5,10 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.0",
+        "php": "^7.4|^8.0",
         "anrail/nova-media-library-tools": "dev-main",
         "classic-o/nova-media-library": "^1.0",
+        "coderello/laravel-nova-lang": "^1.7",
         "digitalcloud/multilingual-nova": "^2.0",
         "eminiarts/nova-tabs": "^1.4",
         "fideloper/proxy": "^4.4",

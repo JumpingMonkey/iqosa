@@ -10,14 +10,14 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class Header extends Resource
+class MediaPageResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Parts\Header::class;
+    public static $model = \App\Models\Pages\MediaPageModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,11 +35,11 @@ class Header extends Resource
         'id',
     ];
 
-    public static $group = 'Pages parts';
+    public static $group = 'Pages';
 
     public static function label()
     {
-        return 'Header';
+        return 'Media ';
     }
 
     /**
@@ -53,14 +53,29 @@ class Header extends Resource
         return [
             Multilingual::make('Language'),
             ID::make(__('ID'), 'id')->sortable(),
-            MediaLibrary::make('Логотип', 'logo'),
-            Flexible::make('Навигация', 'navigation')
-                ->addLayout('Пункт меню', 'navigation_item', [
-                    Text::make('Название пункта', 'name'),
-                    Text::make('Ссылка', 'link'),
-                ])->button('Добавить пункт'),
-            Text::make('Надпись на кнопке', 'btn_text'),
-            Text::make('Ссылка на кнопке', 'btn_link'),
+
+            Text::make('SEO-заголовок', 'seo_title')->hideFromIndex(),
+            Text::make('Мета-описание', 'meta_description')->hideFromIndex(),
+
+            Text::make('Заголовок', 'media_title')->hideFromIndex(),
+            Text::make('Текст ссылки в заголовке', 'media_link_text')->hideFromIndex(),
+            Text::make('Якорь ссылки в заголовке', 'media_link')->hideFromIndex(),
+
+            Flexible::make('Подзаголовок', 'media_text')
+                ->addLayout('Строка', 'text_line', [
+                    Text::make('Текст', 'text'),
+                ])->button('Добавить строку'),
+
+
+            Flexible::make('Изображения', 'media_images')
+                ->addLayout('Изображение на синем фоне', 'media_image_blue', [
+                    MediaLibrary::make('Изображение', 'picture')->hideFromIndex(),
+                ])
+                ->addLayout('Изображение без фона', 'media_image', [
+                    MediaLibrary::make('Изображение', 'picture')->hideFromIndex(),
+                ])
+                ->hideFromIndex()
+                ->button('Добавить изображение'),
         ];
     }
 

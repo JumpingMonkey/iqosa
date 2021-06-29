@@ -13,6 +13,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/money" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/cakephp/chronos" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/classic-o/nova-media-library" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/coderello/laravel-nova-lang" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/digitalcloud/multilingual-nova" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/cache" />

@@ -1,40 +1,40 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Pages;
 
 use Anrail\NovaMediaLibraryTools\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class Article extends Model
+class AboutPlugPageModel extends Model
 {
     use HasFactory, HasTranslations, HasMediaToUrl;
 
+    protected $table = "about_plug_pages";
+
     protected $fillable = [
-        'title',
         'seo_title',
         'meta_description',
-        'link',
-        'main_picture',
-        'authors',
-        'subjects',
-        'content',
+        'about_plug_title',
+        'about_plug_text',
+        'about_plug_picture',
+        'about_plug_links',
     ];
 
     public $translatable = [
-        'title',
         'seo_title',
         'meta_description',
-        'authors',
-        'subjects',
-        'content',
+        'about_plug_title',
+        'about_plug_text',
     ];
 
     public $mediaToUrl = [
-        'main_picture',
-        'content',
-        'picture',
+        'about_plug_picture',
+    ];
+
+    public $fromStrToJson = [
+        'about_plug_links',
     ];
 
 }

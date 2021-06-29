@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Middleware\LocaleMiddleware;
-use App\Models\Member;
+use App\Models\MemberModel;
 use App\Services\Translation\Translation;
 use ClassicO\NovaMediaLibrary\API;
 use Illuminate\Http\Request;
@@ -23,7 +23,7 @@ use App\Http\Controllers\MemberController;
 //Route::group(['prefix' => LocaleMiddleware::getLocale()], function () {
 //    Route::get('/get', function () {
 //
-//        $member = Member::find(1);
+//        $member = MemberResource::find(1);
 //
 //        return response()->json(Translation::translateModelWithoutIdAndTime($member));
 //    });
