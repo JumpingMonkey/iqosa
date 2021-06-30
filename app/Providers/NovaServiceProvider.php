@@ -80,7 +80,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             new \ClassicO\NovaMediaLibrary\NovaMediaLibrary(),
-            new NovaLanguageTool(),
+//            new NovaLanguageTool(),
         ];
     }
 

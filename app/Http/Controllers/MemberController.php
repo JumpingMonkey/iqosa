@@ -7,15 +7,22 @@ use App\Models\MemberModel;
 use App\Models\Pages\AboutPlugPageModel;
 use App\Models\Pages\AboutUsPageModel;
 use App\Models\Pages\BlogPageModel;
+use App\Models\Pages\CareerPageModel;
 use App\Models\Pages\ContactsPageModel;
+use App\Models\Pages\Error404PageModel;
+use App\Models\Pages\JoinPageModel;
 use App\Models\Pages\MainPageModel;
 use App\Models\Pages\MediaPageModel;
+use App\Models\Pages\PrivacyPolicyPageModel;
 use App\Models\Pages\ProjectPageModel;
 use App\Models\Pages\ProjectsPageModel;
+use App\Models\Pages\SayHiPageModel;
+use App\Models\Pages\WorkWithYouPageModel;
 use App\Models\Parts\FooterModel;
 use App\Models\Parts\HeaderModel;
 use App\Models\Parts\PreloaderModel;
 use App\Models\ProjectModel;
+use App\Models\VacancyModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -33,21 +40,21 @@ class MemberController extends Controller
 
 
         // Project detail page
-        $page = ProjectModel::find(1)
-            ->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
-        $memberIds = array();
-        foreach ($page["team_members"] as $member){
-            array_push($memberIds, intval($member["attributes"]["member"]));
-        }
-        $memberIdsOrdered = implode(',', $memberIds);
-        $members = MemberModel::whereIn('id', $memberIds)
-            ->orderByRaw("FIELD(id, $memberIdsOrdered)")
-            ->get();
-        $membersData = array();
-        for ($i = 0; $i < count($members); $i++){
-            $membersData[$i] = $members[$i]->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
-        }
-        $page["team_members"] = $membersData;
+//        $page = ProjectModel::find(1)
+//            ->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+//        $memberIds = array();
+//        foreach ($page["team_members"] as $member) {
+//            array_push($memberIds, intval($member["attributes"]["member"]));
+//        }
+//        $memberIdsOrdered = implode(',', $memberIds);
+//        $members = MemberModel::whereIn('id', $memberIds)
+//            ->orderByRaw("FIELD(id, $memberIdsOrdered)")
+//            ->get();
+//        $membersData = array();
+//        for ($i = 0; $i < count($members); $i++) {
+//            $membersData[$i] = $members[$i]->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+//        }
+//        $page["team_members"] = $membersData;
 
 
 //        $project = ProjectsPageModel::first()
@@ -80,7 +87,6 @@ class MemberController extends Controller
 //            }
 //        }
 //        $page["projects"] = $projectsData;
-
 
 
 //        Сортировка и перевод проектов для главной страницы
@@ -155,8 +161,6 @@ class MemberController extends Controller
 //        $page["team_members"] = $membersData;
 
 
-
-
         // About plug
 //        $page = AboutPlugPageModel::first()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
 
@@ -172,6 +176,34 @@ class MemberController extends Controller
         // Contacts
 //        $page = ContactsPageModel::first()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
 
+
+//         Career
+//        $page = CareerPageModel::first()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+//        $vacancies = VacancyModel::all();
+//        $vacanciesData = [];
+//        for ($i = 0; $i < count($vacancies); $i++) {
+//            $vacanciesData[$i] = $vacancies[$i]->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+//        }
+//        $page['vacancies'] = $vacanciesData;
+
+
+        // Privacy Policy
+//        $page = PrivacyPolicyPageModel::first()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
+
+        // Join
+//        $page = JoinPageModel::first()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
+
+        // Say hi
+//        $page = SayHiPageModel::first()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
+
+        // Work with you
+//        $page = WorkWithYouPageModel::first()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
+        // 404 error
+        $page = Error404PageModel::first()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
 
         return response()->json([
             'status' => 'success',

@@ -35,10 +35,10 @@ class MemberModel extends Model
     ];
 
 
-    public function projects()
-    {
-        return $this->belongsToMany(ProjectModel::class);
-    }
+//    public function projects()
+//    {
+//        return $this->belongsToMany(ProjectModel::class);
+//    }
 
     public function getFullNameAttribute()
     {
