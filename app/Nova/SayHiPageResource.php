@@ -25,6 +25,8 @@ class SayHiPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 10;
+
     /**
      * The columns that should be searched.
      *

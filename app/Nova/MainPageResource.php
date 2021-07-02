@@ -33,6 +33,8 @@ class MainPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 1;
+
     /**
      * The columns that should be searched.
      *

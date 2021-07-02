@@ -26,6 +26,8 @@ class MediaPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 6;
+
     /**
      * The columns that should be searched.
      *

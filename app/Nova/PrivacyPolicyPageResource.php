@@ -26,6 +26,8 @@ class PrivacyPolicyPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 13;
+
     /**
      * The columns that should be searched.
      *

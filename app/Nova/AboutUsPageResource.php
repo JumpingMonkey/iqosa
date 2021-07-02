@@ -45,6 +45,8 @@ class AboutUsPageResource extends Resource
         'id',
     ];
 
+    public static $priority = 2;
+
     public static $group = 'Pages';
 
     public static function label()

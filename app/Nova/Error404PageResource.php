@@ -17,6 +17,8 @@ class Error404PageResource extends Resource
      */
     public static $model = \App\Models\Pages\Error404PageModel::class;
 
+    public static $priority = 12;
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *

@@ -25,6 +25,8 @@ class CareerPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 7;
+
     /**
      * The columns that should be searched.
      *
