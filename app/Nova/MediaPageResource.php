@@ -57,7 +57,7 @@ class MediaPageResource extends Resource
             Text::make('SEO-заголовок', 'seo_title')->hideFromIndex(),
             Text::make('Мета-описание', 'meta_description')->hideFromIndex(),
 
-            Text::make('Заголовок', 'media_title')->hideFromIndex(),
+            Text::make('Заголовок текущей страницы', 'media_title')->hideFromIndex(),
             Text::make('Текст ссылки в заголовке', 'media_link_text')->hideFromIndex(),
             Text::make('Якорь ссылки в заголовке', 'media_link')->hideFromIndex(),
 

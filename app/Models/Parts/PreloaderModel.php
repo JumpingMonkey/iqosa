@@ -20,4 +20,17 @@ class PreloaderModel extends Model
         'content',
     ];
 
+    public static function getPreloader()
+    {
+        $preloader = self::firstOrFail()->content;
+
+        $preloaderNormalized = [];
+
+        foreach ($preloader as $preloaderLine){
+            $preloaderNormalized[] = $preloaderLine["attributes"]["text"];
+        }
+
+        return $preloaderNormalized;
+    }
+
 }

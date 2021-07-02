@@ -1,0 +1,93 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "IQOSA api documentation",
+        "description": "IQOSA api description",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/main": {
+            "get": {
+                "tags": [
+                    "Main Page"
+                ],
+                "description": "Get main page content",
+                "operationId": "getMainPage",
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "description": "Localization language (en, ru, uk)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "content": {
+                                            "properties": {
+                                                "seo_title": {
+                                                    "type": "string",
+                                                    "example": "Interior design studio | IQOSA"
+                                                },
+                                                "meta_description": {
+                                                    "type": "string",
+                                                    "example": "description"
+                                                },
+                                                "hero_title": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "hero_title1": {
+                                                                "type": "string",
+                                                                "example": "Interior design studio | IQOSA"
+                                                            },
+                                                            "hero_title2": {
+                                                                "type": "string",
+                                                                "example": "Interior design studio | IQOSA"
+                                                            },
+                                                            "hero_title3": {
+                                                                "type": "string",
+                                                                "example": "Interior design studio | IQOSA"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

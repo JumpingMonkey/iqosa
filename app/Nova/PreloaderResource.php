@@ -56,7 +56,7 @@ class PreloaderResource extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
             Flexible::make('Контент прелоадера', 'content')
-                ->addLayout('Строка', 'string', [
+                ->addLayout('Строка', 'text_line', [
 
                     Trix::make('Текст', 'text')->alwaysShow()
 

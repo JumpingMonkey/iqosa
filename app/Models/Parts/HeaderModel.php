@@ -27,4 +27,22 @@ class HeaderModel extends Model
     public $mediaToUrl = [
         'logo',
     ];
+
+    public static function getHeader(){
+
+        $header = self::firstOrFail()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
+        $headerNav = [];
+
+        foreach ($header["navigation"] as $navItem){
+            $headerNav[] = [
+                "link" => $navItem["attributes"]["link"],
+                "name" => $navItem["attributes"]["name"]
+                ];
+        }
+
+        $header["navigation"] = $headerNav;
+
+        return $header;
+    }
 }

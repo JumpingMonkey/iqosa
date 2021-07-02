@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Pages\MainPageController;
+use App\Http\Controllers\PagesPartsController;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Models\MemberModel;
 use App\Services\Translation\Translation;
@@ -30,7 +32,8 @@ use App\Http\Controllers\MemberController;
 //});
 
 Route::middleware('locale')->group(function (){
-    Route::get('/get/', [MemberController::class, 'get']);
+    Route::get('/main', [MainPageController::class, 'index']);
+    Route::get('/parts', [PagesPartsController::class, 'index']);
 });
 
 

@@ -39,6 +39,7 @@ class AboutUsPageModel extends Model
     public $translatable = [
         'seo_title',
         'meta_description',
+        'main_video',
         'hero_left_text',
         'hero_right_text',
         'first_animated_text',
