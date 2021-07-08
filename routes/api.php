@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Pages\AboutUsPageController;
 use App\Http\Controllers\Pages\MainPageController;
 use App\Http\Controllers\PagesPartsController;
 use App\Http\Middleware\LocaleMiddleware;
@@ -34,6 +35,7 @@ use App\Http\Controllers\MemberController;
 Route::middleware('locale')->group(function (){
     Route::get('/main', [MainPageController::class, 'index']);
     Route::get('/parts', [PagesPartsController::class, 'index']);
+    Route::get('/about',[AboutUsPageController::class, 'index']);
 });
 
 
