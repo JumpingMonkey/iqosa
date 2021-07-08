@@ -77,18 +77,22 @@ class MainPageModel extends Model
         $projectIds = [];
         $projectsData = [];
         $projectsObject = $this["projects_data"];
-        foreach ($projectsObject as $project) {
-            $projectIds[] = $project->attributes->project;
-        }
-        $projects = ProjectModel::select('seo_title')
-            ->whereIn('id', $projectIds)
-            ->select("id", "type", "number", "link", "release_date", "area", "main_picture", "city", "country")
-            ->get();
-        foreach ($projectsObject as $key => $project) {
-            $projectsData[] = $projects->first(function ($value) use ($project) {
-                return $value->id === (int)$project->attributes->project;
-            })
-                ->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+        if(isset($projectsObject)){
+            foreach ($projectsObject as $project) {
+                $projectIds[] = $project->attributes->project;
+            }
+            $projects = ProjectModel::select('seo_title')
+                ->whereIn('id', $projectIds)
+                ->select("id", "type", "number", "link", "release_date", "area", "main_picture", "city", "country")
+                ->get();
+
+            foreach ($projectsObject as $key => $project) {
+
+                $projectsData[] = $projects->first(function ($value) use ($project) {
+                    return $value->id === (int)$project->attributes->project;
+                })
+                    ->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+                }
         }
         $this->projects = $projectsData;
     }

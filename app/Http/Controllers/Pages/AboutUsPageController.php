@@ -17,16 +17,13 @@ class AboutUsPageController extends Controller
      */
     public function index()
     {
-//        $data = AboutUsPageModel::firstOrFail();
+        $data = AboutUsPageModel::firstOrFail();
+        $content = $data->getFullData();
 
-//        $content = $data->getFullData();
-
-        $files = API::getFiles(1);
-        dd($files);
-//        return response()->json([
-//            'status' => 'success',
-//            'content' => $data,
-//        ]);
+        return response()->json([
+            'status' => 'success',
+            'content' => $content,
+        ]);
     }
 
     /**
