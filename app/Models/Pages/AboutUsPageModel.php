@@ -53,6 +53,7 @@ class AboutUsPageModel extends Model
         'slider_text',
         'bottom_block_text',
         'bottom_block_hover_text',
+        'main_video',
     ];
 
     public $mediaToUrl = [
@@ -65,9 +66,9 @@ class AboutUsPageModel extends Model
 
     ];
 
-    public $fromStrToJson = [
-        'team_members',
-    ];
+//    public $fromStrToJson = [
+//        'team_members',
+//    ];
 
 //    public function getTeamMembersAttribute($value)
 //    {
@@ -130,22 +131,31 @@ class AboutUsPageModel extends Model
     }
 
     public static function normalizeData($object){
-        $heroTitle = [];
-        $heroText = [];
+        $heroRightText = [];
+        $heroLeftText = [];
+        $sliderText = [];
         $teamText = [];
+        $sliderPictures =[];
 
-        if (array_key_exists('hero_title', $object)){
-            foreach ($object["hero_title"] as $titleLine){
-                $heroTitle[] = $titleLine["attributes"]["text"];
+        if (array_key_exists('hero_right_text', $object)){
+            foreach ($object["hero_right_text"] as $titleLine){
+                $heroRightText[] = $titleLine["attributes"]["text"];
             }
-            $object["hero_title"] = $heroTitle;
+            $object["hero_right_text"] = $heroRightText;
         }
 
-        if (array_key_exists('hero_text', $object)){
-            foreach ($object["hero_text"] as $textLine){
-                $heroText[] = $textLine["attributes"]["text"];
+        if (array_key_exists('hero_left_text', $object)){
+            foreach ($object["hero_left_text"] as $titleLine){
+                $heroLeftText[] = $titleLine["attributes"]["text"];
             }
-            $object["hero_text"] = $heroText;
+            $object["hero_left_text"] = $heroLeftText;
+        }
+
+        if (array_key_exists('slider_text', $object)){
+            foreach ($object["slider_text"] as $textLine){
+                $sliderText[] = $textLine["attributes"]["text"];
+            }
+            $object["slider_text"] = $sliderText;
         }
 
         if (array_key_exists('team_text', $object)){
@@ -153,6 +163,13 @@ class AboutUsPageModel extends Model
                 $teamText[] = [$teamTextLine["layout"] => $teamTextLine["attributes"]["text"]];
             }
             $object["team_text"] = $teamText;
+        }
+
+        if (array_key_exists('slider_pictures', $object)){
+            foreach ($object["slider_pictures"] as $sliderPic){
+                $sliderPictures[] = $sliderPic["attributes"]["picture"];
+            }
+            $object["slider_pictures"] = $sliderPictures;
         }
 
         return $object;
@@ -163,10 +180,7 @@ class AboutUsPageModel extends Model
         try{
 
             $this->getMembers();
-//            return $this;
-            return $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
-
-//            return self::normalizeData($this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']));
+            return self::normalizeData($this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']));
 
         } catch (\Exception $ex){
             throw new ModelNotFoundException();

@@ -5,6 +5,7 @@ use App\Http\Controllers\Pages\MainPageController;
 use App\Http\Controllers\PagesPartsController;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Models\MemberModel;
+use App\Nova\MemberResource;
 use App\Services\Translation\Translation;
 use ClassicO\NovaMediaLibrary\API;
 use Illuminate\Http\Request;
