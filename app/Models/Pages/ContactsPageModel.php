@@ -5,6 +5,7 @@ namespace App\Models\Pages;
 use Anrail\NovaMediaLibraryTools\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
 class ContactsPageModel extends Model
@@ -31,4 +32,16 @@ class ContactsPageModel extends Model
         'map_link_text',
         'map_link_text-animated'
     ];
+
+
+    public function getFullData(){
+        try{
+
+            return $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
+        } catch (\Exception $ex){
+            throw new ModelNotFoundException();
+        }
+
+    }
 }
