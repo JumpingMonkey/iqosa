@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Pages\AboutUsPageController;
 use App\Http\Controllers\Pages\MainPageController;
+use App\Http\Controllers\Pages\ProjectPageController;
 use App\Http\Controllers\Pages\ProjectsPageController;
 use App\Http\Controllers\PagesPartsController;
 use App\Http\Middleware\LocaleMiddleware;
@@ -39,7 +40,7 @@ Route::middleware('locale')->group(function (){
     Route::get('/parts', [PagesPartsController::class, 'index']);
     Route::get('/about',[AboutUsPageController::class, 'index']);
     Route::get('/projects', [ProjectsPageController::class, 'index']);
-//    Route::get('/project', []);
+    Route::get('/project', [ProjectPageController::class, 'index']);
 });
 
 

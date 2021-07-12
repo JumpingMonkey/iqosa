@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pages\ProjectsPageModel;
+use App\Models\Pages\ProjectPageModel;
 use Illuminate\Http\Request;
 
-class ProjectsPageController extends Controller
+class ProjectPageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProjectsPageController extends Controller
      */
     public function index()
     {
-        $data = ProjectsPageModel::firstOrFail();
+        $data = ProjectPageModel::firstOrFail();
         $content = $data->getFullData();
 
         return response()->json([
