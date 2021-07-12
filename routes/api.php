@@ -3,6 +3,7 @@
 use App\Http\Controllers\Pages\AboutUsPageController;
 use App\Http\Controllers\Pages\BlogPageController;
 use App\Http\Controllers\Pages\MainPageController;
+use App\Http\Controllers\Pages\MediaPageController;
 use App\Http\Controllers\Pages\ProjectPageController;
 use App\Http\Controllers\Pages\ProjectsPageController;
 use App\Http\Controllers\PagesPartsController;
@@ -43,6 +44,7 @@ Route::middleware('locale')->group(function (){
     Route::get('/projects', [ProjectsPageController::class, 'index']);
     Route::get('/project', [ProjectPageController::class, 'index']);
     Route::get('/blog', [BlogPageController::class, 'index']);
+    Route::get('/media', [MediaPageController::class, 'index']);
 });
 
 
