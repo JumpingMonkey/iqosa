@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Pages\AboutUsPageController;
+use App\Http\Controllers\Pages\BlogPageController;
 use App\Http\Controllers\Pages\MainPageController;
 use App\Http\Controllers\Pages\ProjectPageController;
 use App\Http\Controllers\Pages\ProjectsPageController;
@@ -41,6 +42,7 @@ Route::middleware('locale')->group(function (){
     Route::get('/about',[AboutUsPageController::class, 'index']);
     Route::get('/projects', [ProjectsPageController::class, 'index']);
     Route::get('/project', [ProjectPageController::class, 'index']);
+    Route::get('/blog', [BlogPageController::class, 'index']);
 });
 
 

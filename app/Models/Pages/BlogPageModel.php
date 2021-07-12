@@ -5,6 +5,7 @@ namespace App\Models\Pages;
 use Anrail\NovaMediaLibraryTools\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
 class BlogPageModel extends Model
@@ -32,4 +33,27 @@ class BlogPageModel extends Model
         'blog_btn_text'
     ];
 
+    public static function normalizeData($object){
+        $blogText = [];
+
+        if (array_key_exists('blog_text', $object)){
+            foreach ($object["blog_text"] as $titleLine){
+                $blogText[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+            }
+            $object["blog_text"] = $blogText;
+        }
+
+        return $object;
+
+    }
+
+    public function getFullData(){
+        try{
+            return self::normalizeData($this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']));
+
+        } catch (\Exception $ex){
+            throw new ModelNotFoundException();
+        }
+
+    }
 }
