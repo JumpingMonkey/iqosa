@@ -4,6 +4,7 @@ use App\Http\Controllers\Pages\AboutUsPageController;
 use App\Http\Controllers\Pages\BlogPageController;
 use App\Http\Controllers\Pages\CareerPageController;
 use App\Http\Controllers\Pages\ContactsPageController;
+use App\Http\Controllers\Pages\JoinPageController;
 use App\Http\Controllers\Pages\MainPageController;
 use App\Http\Controllers\Pages\MediaPageController;
 use App\Http\Controllers\Pages\ProjectPageController;
@@ -49,6 +50,7 @@ Route::middleware('locale')->group(function (){
     Route::get('/media', [MediaPageController::class, 'index']);
     Route::get('/career', [CareerPageController::class, 'index']);
     Route::get('/contacts', [ContactsPageController::class, 'index']);
+    Route::get('/join', [JoinPageController::class, 'index']);
 });
 
 

@@ -5,6 +5,7 @@ namespace App\Models\Pages;
 use Anrail\NovaMediaLibraryTools\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
 class JoinPageModel extends Model
@@ -66,4 +67,29 @@ class JoinPageModel extends Model
         'thanks_link_text',
         'thanks_link_text_animated',
     ];
+
+    public static function normalizeData($object){
+        $titleSmall = [];
+
+        if (array_key_exists('title_small', $object)){
+            foreach ($object["title_small"] as $titleLine){
+                $titleSmall[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+            }
+            $object["title_small"] = $titleSmall;
+        }
+
+        return $object;
+
+    }
+
+    public function getFullData(){
+        try{
+
+            return self::normalizeData($this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']));
+
+        } catch (\Exception $ex){
+            throw new ModelNotFoundException();
+        }
+
+    }
 }
