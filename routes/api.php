@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Pages\AboutUsPageController;
 use App\Http\Controllers\Pages\BlogPageController;
 use App\Http\Controllers\Pages\CareerPageController;
@@ -48,17 +49,19 @@ Route::middleware('locale')->group(function (){
     Route::get('/main', [MainPageController::class, 'index']);
     Route::get('/parts', [PagesPartsController::class, 'index']);
     Route::get('/about',[AboutUsPageController::class, 'index']);
-    Route::get('/projects', [ProjectsPageController::class, 'index']);
-    Route::get('/project', [ProjectPageController::class, 'index']);
+    Route::get('/projects_page', [ProjectsPageController::class, 'index']);
+    Route::get('/project_page', [ProjectPageController::class, 'index']);
     Route::get('/blog', [BlogPageController::class, 'index']);
     Route::get('/media', [MediaPageController::class, 'index']);
     Route::get('/career', [CareerPageController::class, 'index']);
     Route::get('/contacts', [ContactsPageController::class, 'index']);
     Route::get('/join', [JoinPageController::class, 'index']);
-    Route::get('/sayhi', [SayHiPageController::class, 'index']);
-    Route::get('/workwithyou', [WorkWithYouPageController::class, 'index']);
+    Route::get('/say_hi', [SayHiPageController::class, 'index']);
+    Route::get('/work_with_you', [WorkWithYouPageController::class, 'index']);
     Route::get('/404', [Error404PageController::class, 'index']);
-    Route::get('/privacypolicy', [PrivacyPolicyPageController::class, 'index']);
+    Route::get('/privacy_policy', [PrivacyPolicyPageController::class, 'index']);
+    Route::get('/articles', [ArticleController::class , 'getArticleList']);
+    Route::get('/articles/{slug}', [ArticleController::class , 'getOneArticle']);
 });
 
 
