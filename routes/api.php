@@ -4,6 +4,7 @@ use App\Http\Controllers\Pages\AboutUsPageController;
 use App\Http\Controllers\Pages\BlogPageController;
 use App\Http\Controllers\Pages\CareerPageController;
 use App\Http\Controllers\Pages\ContactsPageController;
+use App\Http\Controllers\Pages\Error404PageController;
 use App\Http\Controllers\Pages\JoinPageController;
 use App\Http\Controllers\Pages\MainPageController;
 use App\Http\Controllers\Pages\MediaPageController;
@@ -55,6 +56,7 @@ Route::middleware('locale')->group(function (){
     Route::get('/join', [JoinPageController::class, 'index']);
     Route::get('/sayhi', [SayHiPageController::class, 'index']);
     Route::get('/workwithyou', [WorkWithYouPageController::class, 'index']);
+    Route::get('/404', [Error404PageController::class, 'index']);
 });
 
 
