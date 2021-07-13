@@ -8,6 +8,7 @@ use App\Http\Controllers\Pages\Error404PageController;
 use App\Http\Controllers\Pages\JoinPageController;
 use App\Http\Controllers\Pages\MainPageController;
 use App\Http\Controllers\Pages\MediaPageController;
+use App\Http\Controllers\Pages\PrivacyPolicyPageController;
 use App\Http\Controllers\Pages\ProjectPageController;
 use App\Http\Controllers\Pages\ProjectsPageController;
 use App\Http\Controllers\Pages\SayHiPageController;
@@ -57,6 +58,7 @@ Route::middleware('locale')->group(function (){
     Route::get('/sayhi', [SayHiPageController::class, 'index']);
     Route::get('/workwithyou', [WorkWithYouPageController::class, 'index']);
     Route::get('/404', [Error404PageController::class, 'index']);
+    Route::get('/privacypolicy', [PrivacyPolicyPageController::class, 'index']);
 });
 
 
