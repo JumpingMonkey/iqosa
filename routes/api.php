@@ -9,6 +9,7 @@ use App\Http\Controllers\Pages\MainPageController;
 use App\Http\Controllers\Pages\MediaPageController;
 use App\Http\Controllers\Pages\ProjectPageController;
 use App\Http\Controllers\Pages\ProjectsPageController;
+use App\Http\Controllers\Pages\SayHiPageController;
 use App\Http\Controllers\PagesPartsController;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Models\MemberModel;
@@ -51,6 +52,7 @@ Route::middleware('locale')->group(function (){
     Route::get('/career', [CareerPageController::class, 'index']);
     Route::get('/contacts', [ContactsPageController::class, 'index']);
     Route::get('/join', [JoinPageController::class, 'index']);
+    Route::get('/sayhi', [SayHiPageController::class, 'index']);
 });
 
 
