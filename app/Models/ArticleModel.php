@@ -44,6 +44,7 @@ class ArticleModel extends Model
         $authors = [];
         $subjects = [];
         $content = [];
+        $tmp = [];
 
 
         if (array_key_exists('authors', $object)){
@@ -61,17 +62,42 @@ class ArticleModel extends Model
         }
 
         if (array_key_exists('content', $object)){
-            foreach ($object["content"] as $titleLine){
-                if ($titleLine['layout'])
-                $content[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+            foreach ($object["content"] as $titleLine) {
+                if ($titleLine['layout'] == 'text_block') {
+                    $content[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+                }
+///////////Переписать!!!//////////
+                if ($titleLine['layout'] == 'gallery') {
+                    $tmp = [$titleLine['layout'] => $titleLine["attributes"]["gallery_items"]];
 
+                    $content_galery = [];
+                    foreach ($tmp['gallery'] as $item){
+//                        foreach ($item['attributes'] as $item2){
+//                            dd($item2);
+//                        }
+                        $content_galery[] = $item["attributes"];
+
+                    }
+                    $content[] = $content_galery;
+                }
             }
             $object["content"] = $content;
         }
+////////////
 
         return $object;
 
     }
+
+//    public static function f($object){
+//
+//        if(array_key_exists('attributes', $object)){
+//            $object = [$object['layout'] => $object["attributes"]['gallery_items']];
+//            return self::f($object);
+//        } else {
+//            $object
+//        }
+//    }
 
     public static function getFullData(self $object){
         try{

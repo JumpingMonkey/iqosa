@@ -37,8 +37,6 @@ class ArticleController extends Controller
         $data = ArticleModel::query()->where('link', $request->slug)->first();
         $content = ArticleModel::getFullDataOneAtricle($data);
 
-
-
         return response()->json([
             'status' => 'success',
             'content' => $content,
