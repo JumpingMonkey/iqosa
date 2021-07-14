@@ -39,7 +39,6 @@ class ArticleModel extends Model
         'content',
         'picture',
     ];
-
     public static function normalizeData($object){
         $authors = [];
         $subjects = [];
@@ -49,59 +48,52 @@ class ArticleModel extends Model
 
         if (array_key_exists('authors', $object)){
             foreach ($object["authors"] as $titleLine){
-                $authors[] = [$titleLine['layout'] => $titleLine["attributes"]["author_name"]];
+                $authors[] = $titleLine["attributes"]["author_name"];
             }
             $object["authors"] = $authors;
         }
-
+//
         if (array_key_exists('subjects', $object)){
             foreach ($object["subjects"] as $titleLine){
-                $subjects[] = [$titleLine['layout'] => $titleLine["attributes"]["subject_name"]];
+                $subjects[] = $titleLine["attributes"]["subject_name"];
             }
             $object["subjects"] = $subjects;
         }
-
+//
         if (array_key_exists('content', $object)){
-            foreach ($object["content"] as $titleLine) {
-                if ($titleLine['layout'] == 'text_block') {
-                    $content[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+            foreach ($object["content"] as $contentItem) {
+                if ($contentItem['layout'] == 'text_block') {
+                    $content[] = [$contentItem['layout'] => $contentItem["attributes"]["text"]];
                 }
-///////////Переписать!!!//////////
-                if ($titleLine['layout'] == 'gallery') {
-                    $tmp = [$titleLine['layout'] => $titleLine["attributes"]["gallery_items"]];
 
-                    $content_galery = [];
-                    foreach ($tmp['gallery'] as $item){
-//                        foreach ($item['attributes'] as $item2){
-//                            dd($item2);
-//                        }
-                        $content_galery[] = $item["attributes"];
+                if ($contentItem['layout'] == 'gallery') {
+
+                    foreach ($contentItem["attributes"]["gallery_items"] as $galleryItem){
+                        $element = [];
+                        $texts = [];
+                        $element["picture"] = $galleryItem["attributes"]["picture"];
+
+                        foreach ($galleryItem["attributes"]["picture_text"] as $text){
+                            $texts[] = $text["attributes"]["text"];
+                        }
+
+                        $element["picture_text"] = $texts;
+
+                        $content[] = [$contentItem['layout'] => $element];
 
                     }
-                    $content[] = $content_galery;
                 }
             }
             $object["content"] = $content;
         }
-////////////
 
         return $object;
 
     }
 
-//    public static function f($object){
-//
-//        if(array_key_exists('attributes', $object)){
-//            $object = [$object['layout'] => $object["attributes"]['gallery_items']];
-//            return self::f($object);
-//        } else {
-//            $object
-//        }
-//    }
-
     public static function getFullData(self $object){
         try{
-            return $object->getAllWithMediaUrlWithout(['id', 'updated_at']);
+            return $object->getAllWithMediaUrlWithout(['updated_at']);
 
         } catch (\Exception $ex){
             throw new ModelNotFoundException();

@@ -15,6 +15,7 @@ use App\Http\Controllers\Pages\ProjectsPageController;
 use App\Http\Controllers\Pages\SayHiPageController;
 use App\Http\Controllers\Pages\WorkWithYouPageController;
 use App\Http\Controllers\PagesPartsController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Models\MemberModel;
 use App\Nova\MemberResource;
@@ -62,6 +63,8 @@ Route::middleware('locale')->group(function (){
     Route::get('/privacy_policy', [PrivacyPolicyPageController::class, 'index']);
     Route::get('/articles', [ArticleController::class , 'getArticleList']);
     Route::get('/articles/{slug}', [ArticleController::class , 'getOneArticle']);
+    Route::get('/projects', [ProjectController::class , 'getProjectList']);
+    Route::get('/projects/{slug}', [ProjectController::class , 'getOneProject']);
 });
 
 
