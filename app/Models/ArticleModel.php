@@ -43,7 +43,7 @@ class ArticleModel extends Model
         $authors = [];
         $subjects = [];
         $content = [];
-        $tmp = [];
+
 
 
         if (array_key_exists('authors', $object)){

@@ -22,7 +22,7 @@ class ProjectController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'projects' => $content,
+            'content' => $content,
         ]);
     }
 
