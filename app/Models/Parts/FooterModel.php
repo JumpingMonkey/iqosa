@@ -73,32 +73,35 @@ class FooterModel extends Model
         $leftTels = [];
         $centerEmails = [];
         $socialLinks = [];
-
+    if($footer["left_emails"]){
         foreach ($footer["left_emails"] as $email){
             $leftEmails[] = $email["attributes"]["E-mail"];
         }
-
+}
+    if($footer["left_tels"]){
         foreach ($footer["left_tels"] as $tel){
             $leftTels[] = [
                 'tel' => $tel["attributes"]["tel"],
                 'person' => $tel["attributes"]["person"],
             ];
         }
-
+    }
+        if($footer["center_emails"]){
         foreach ($footer["center_emails"] as $email){
             $centerEmails[] = [
                 'title' => $email["attributes"]["title"],
                 'e-mail' => $email["attributes"]["e-mail"],
             ];
         }
-
-        foreach ($footer["social_links"] as $link){
-            $socialLinks[] = [
-                "social_link" => $link["attributes"]["social_link"],
-                "social_name" => $link["attributes"]["social_name"],
-            ];
         }
-
+            if($footer["social_links"]) {
+                foreach ($footer["social_links"] as $link) {
+                    $socialLinks[] = [
+                        "social_link" => $link["attributes"]["social_link"],
+                        "social_name" => $link["attributes"]["social_name"],
+                    ];
+                }
+            }
         $footer["left_emails"] = $leftEmails;
         $footer["left_tels"] = $leftTels;
         $footer["center_emails"] = $centerEmails;
