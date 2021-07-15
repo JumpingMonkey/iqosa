@@ -15,6 +15,7 @@ use App\Http\Controllers\Pages\ProjectsPageController;
 use App\Http\Controllers\Pages\SayHiPageController;
 use App\Http\Controllers\Pages\WorkWithYouPageController;
 use App\Http\Controllers\PagesPartsController;
+use App\Http\Controllers\PopupsController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Middleware\LocaleMiddleware;
@@ -67,7 +68,8 @@ Route::middleware('locale')->group(function (){
     Route::get('/projects', [ProjectController::class , 'getProjectList']);
     Route::get('/projects/{slug}', [ProjectController::class , 'getOneProject']);
     Route::get('/vacancies', [VacancyController::class , 'getVacanciesList']);
-//    Route::get('/vacancy/{slug}', [VacancyController::class , 'getOneVacancy']);
+//post
+    Route::post('/join_popup_send', [PopupsController::class, 'join_popup_post']);
 });
 
 
