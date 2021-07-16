@@ -1,0 +1,571 @@
+openapi: 3.1.0
+info:
+  title: Iqosa
+  version: '1.0'
+  description: Iqosa API documentation
+  summary: Iqosa API
+  contact:
+    name: No name
+    url: No url
+    email: No email
+  termsOfService: No url
+servers:
+  - url: 'https://backiqosa.staj.fun/api'
+paths:
+  /main:
+    get:
+      summary: Get main page
+      tags:
+        - Main page
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: success
+                    content:
+                      seo_title: seo
+                      meta_description: meta
+                      hero_title:
+                        - title1
+                        - title2
+                        - title3
+                      hero_text:
+                        - text1
+                        - text2
+                        - text3
+                      hero_link_text: text
+                      hero_link_text_animated: text
+                      hero_link: link
+                      projects:
+                        - type: IQ
+                          number: 98-KD
+                          link: iq-98-kd
+                          release_date: '2021'
+                          area: '203,6'
+                          main_picture: /storage/12-1625132429c9NbD.jpg
+                          city: Odessa
+                          country: Ukraine
+                        - type: IQ
+                          number: 87-OR
+                          link: iq-87-or
+                          release_date: '2021'
+                          area: '119'
+                          main_picture: /storage/No_image_available.svg
+                          city: Kyiv
+                          country: Ukraine
+                      projects_title: title
+                      projects_title_animated: title
+                      projects_title_link: link
+                      projects_current_text_animated: text
+                      projects_current_text: text
+                      team_members:
+                        - name: ALINA
+                          surname: PICHUGINA
+                          position: DESIGNER-VISUALIZER
+                          about: 'IQOSA  - are people close in spirit and values. A strong team with which complex tasks turn into simple ones, and ideas become real'
+                          photo: /storage/img-3986-2-1625132432xOPXn.jpg
+                          parallax_photo: /storage/img-3986-2-1-1625132432nryjs.jpg
+                        - name: MARINA
+                          surname: MOLODETS
+                          position: PURCHASING MANAGER
+                          about: 'IQOSA is an opportunity to tell people artistically, subtly, interesting about design at all its stages: from visualization to the first client''s steps into the realized interior'
+                          photo: /storage/img-3816-draft-1625132431wT37G.jpg
+                          parallax_photo: /storage/img-3816-2-1625132431o4zVE.jpg
+                      team_text:
+                        - thin_text: text
+                        - bold_text: text
+                      team_link_text_animated: text
+                      team_link_text: text
+                      team_link: link
+                properties:
+                  status:
+                    type: string
+                    minLength: 1
+                  content:
+                    type: object
+                    properties:
+                      seo_title:
+                        type: string
+                        minLength: 1
+                      meta_description:
+                        type: string
+                        minLength: 1
+                      hero_title:
+                        type: array
+                        items:
+                          type: string
+                      hero_text:
+                        type: array
+                        items:
+                          type: string
+                      hero_link_text:
+                        type: string
+                        minLength: 1
+                      hero_link_text_animated:
+                        type: string
+                        minLength: 1
+                      hero_link:
+                        type: string
+                        minLength: 1
+                      projects:
+                        type: array
+                        uniqueItems: true
+                        minItems: 1
+                        items:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                              minLength: 1
+                            number:
+                              type: string
+                              minLength: 1
+                            link:
+                              type: string
+                              minLength: 1
+                            release_date:
+                              type: string
+                              minLength: 1
+                            area:
+                              type: string
+                              minLength: 1
+                            main_picture:
+                              type: string
+                              minLength: 1
+                            city:
+                              type: string
+                              minLength: 1
+                            country:
+                              type: string
+                              minLength: 1
+                      projects_title:
+                        type: string
+                        minLength: 1
+                      projects_title_animated:
+                        type: string
+                        minLength: 1
+                      projects_title_link:
+                        type: string
+                        minLength: 1
+                      projects_current_text_animated:
+                        type: string
+                        minLength: 1
+                      projects_current_text:
+                        type: string
+                        minLength: 1
+                      team_members:
+                        type: array
+                        uniqueItems: true
+                        minItems: 1
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              minLength: 1
+                            surname:
+                              type: string
+                              minLength: 1
+                            position:
+                              type: string
+                              minLength: 1
+                            about:
+                              type: string
+                              minLength: 1
+                            photo:
+                              type: string
+                              minLength: 1
+                            parallax_photo:
+                              type: string
+                              minLength: 1
+                      team_text:
+                        type: array
+                        uniqueItems: true
+                        minItems: 1
+                        items:
+                          type: object
+                          properties:
+                            thin_text:
+                              type: string
+                              minLength: 1
+                      team_link_text_animated:
+                        type: string
+                        minLength: 1
+                      team_link_text:
+                        type: string
+                        minLength: 1
+                      team_link:
+                        type: string
+                        minLength: 1
+              examples:
+                example:
+                  value:
+                    status: success
+                    content:
+                      seo_title: seo
+                      meta_description: meta
+                      hero_title:
+                        - title1
+                        - title2
+                        - title3
+                      hero_text:
+                        - text1
+                        - text2
+                        - text3
+                      hero_link_text: text
+                      hero_link_text_animated: text
+                      hero_link: link
+                      projects:
+                        - type: IQ
+                          number: 98-KD
+                          link: iq-98-kd
+                          release_date: '2021'
+                          area: '203,6'
+                          main_picture: /storage/12-1625132429c9NbD.jpg
+                          city: Odessa
+                          country: Ukraine
+                        - type: IQ
+                          number: 87-OR
+                          link: iq-87-or
+                          release_date: '2021'
+                          area: '119'
+                          main_picture: /storage/No_image_available.svg
+                          city: Kyiv
+                          country: Ukraine
+                      projects_title: title
+                      projects_title_animated: title
+                      projects_title_link: link
+                      projects_current_text_animated: text
+                      projects_current_text: text
+                      team_members:
+                        - name: ALINA
+                          surname: PICHUGINA
+                          position: DESIGNER-VISUALIZER
+                          about: 'IQOSA  - are people close in spirit and values. A strong team with which complex tasks turn into simple ones, and ideas become real'
+                          photo: /storage/img-3986-2-1625132432xOPXn.jpg
+                          parallax_photo: /storage/img-3986-2-1-1625132432nryjs.jpg
+                        - name: MARINA
+                          surname: MOLODETS
+                          position: PURCHASING MANAGER
+                          about: 'IQOSA is an opportunity to tell people artistically, subtly, interesting about design at all its stages: from visualization to the first client''s steps into the realized interior'
+                          photo: /storage/img-3816-draft-1625132431wT37G.jpg
+                          parallax_photo: /storage/img-3816-2-1625132431o4zVE.jpg
+                      team_text:
+                        - thin_text: text
+                        - bold_text: text
+                      team_link_text_animated: text
+                      team_link_text: text
+                      team_link: link
+        '404':
+          $ref: '#/components/responses/404-Error'
+      operationId: get-main
+      description: Get main page
+      parameters:
+        - $ref: '#/components/parameters/lang'
+        - schema:
+            type: string
+          in: query
+  /parts:
+    get:
+      summary: Get parts of pages
+      tags:
+        - Page parts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: success
+                    preloader:
+                      - <div>1</div>
+                      - <div>1</div>
+                    header:
+                      logo: /storage/iqosa-header-logo-1625132587fjbKa.svg
+                      navigation:
+                        - link: link1
+                          name: item1
+                        - link: link2
+                          name: item2
+                      btn_text: '1'
+                      btn_link: '2'
+                    footer:
+                      left_title: '2'
+                      left_city: '2'
+                      left_address: '2'
+                      left_google_map_link: '3'
+                      left_emails:
+                        - email-1
+                        - email-2
+                        - email-3
+                      left_tels:
+                        - tel: tel1
+                          person: name1
+                        - tel: tel2
+                          person: name2
+                      center_title: '2'
+                      center_emails:
+                        - title: title-1
+                          e-mail: email-1
+                        - title: title-2
+                          e-mail: email-2
+                        - title: title-3
+                          e-mail: email-3
+                      right_title: '2'
+                      right_big_text: '2'
+                      right_big_link_text: '2'
+                      right_big_link: '3'
+                      politic_label: '2'
+                      politic_link: '3'
+                      social_links:
+                        - social_link: link1
+                          social_name: name1
+                        - social_link: link2
+                          social_name: name2
+                        - social_link: link3
+                          social_name: name3
+                      developed_label: '2'
+                      developed_by_label: '3'
+                      developed_by_link: '3'
+                      cookie_text: '2'
+                      cookie_btn_text: '2'
+                properties:
+                  status:
+                    type: string
+                    minLength: 1
+                  preloader:
+                    type: array
+                    items:
+                      type: string
+                  header:
+                    type: object
+                    properties:
+                      logo:
+                        type: string
+                        minLength: 1
+                      navigation:
+                        type: array
+                        uniqueItems: true
+                        minItems: 1
+                        items:
+                          type: object
+                          properties:
+                            link:
+                              type: string
+                              minLength: 1
+                            name:
+                              type: string
+                              minLength: 1
+                      btn_text:
+                        type: string
+                        minLength: 1
+                      btn_link:
+                        type: string
+                        minLength: 1
+                  footer:
+                    type: object
+                    properties:
+                      left_title:
+                        type: string
+                        minLength: 1
+                      left_city:
+                        type: string
+                        minLength: 1
+                      left_address:
+                        type: string
+                        minLength: 1
+                      left_google_map_link:
+                        type: string
+                        minLength: 1
+                      left_emails:
+                        type: array
+                        items:
+                          type: string
+                      left_tels:
+                        type: array
+                        uniqueItems: true
+                        minItems: 1
+                        items:
+                          type: object
+                          properties:
+                            tel:
+                              type: string
+                              minLength: 1
+                            person:
+                              type: string
+                              minLength: 1
+                      center_title:
+                        type: string
+                        minLength: 1
+                      center_emails:
+                        type: array
+                        uniqueItems: true
+                        minItems: 1
+                        items:
+                          type: object
+                          properties:
+                            title:
+                              type: string
+                              minLength: 1
+                            e-mail:
+                              type: string
+                              minLength: 1
+                      right_title:
+                        type: string
+                        minLength: 1
+                      right_big_text:
+                        type: string
+                        minLength: 1
+                      right_big_link_text:
+                        type: string
+                        minLength: 1
+                      right_big_link:
+                        type: string
+                        minLength: 1
+                      politic_label:
+                        type: string
+                        minLength: 1
+                      politic_link:
+                        type: string
+                        minLength: 1
+                      social_links:
+                        type: array
+                        uniqueItems: true
+                        minItems: 1
+                        items:
+                          type: object
+                          properties:
+                            social_link:
+                              type: string
+                              minLength: 1
+                            social_name:
+                              type: string
+                              minLength: 1
+                      developed_label:
+                        type: string
+                        minLength: 1
+                      developed_by_label:
+                        type: string
+                        minLength: 1
+                      developed_by_link:
+                        type: string
+                        minLength: 1
+                      cookie_text:
+                        type: string
+                        minLength: 1
+                      cookie_btn_text:
+                        type: string
+                        minLength: 1
+              examples:
+                example:
+                  value:
+                    status: success
+                    preloader:
+                      - <div>1</div>
+                      - <div>1</div>
+                    header:
+                      logo: /storage/iqosa-header-logo-1625132587fjbKa.svg
+                      navigation:
+                        - link: link1
+                          name: item1
+                        - link: link2
+                          name: item2
+                      btn_text: '1'
+                      btn_link: '2'
+                    footer:
+                      left_title: '2'
+                      left_city: '2'
+                      left_address: '2'
+                      left_google_map_link: '3'
+                      left_emails:
+                        - email-1
+                        - email-2
+                        - email-3
+                      left_tels:
+                        - tel: tel1
+                          person: name1
+                        - tel: tel2
+                          person: name2
+                      center_title: '2'
+                      center_emails:
+                        - title: title-1
+                          e-mail: email-1
+                        - title: title-2
+                          e-mail: email-2
+                        - title: title-3
+                          e-mail: email-3
+                      right_title: '2'
+                      right_big_text: '2'
+                      right_big_link_text: '2'
+                      right_big_link: '3'
+                      politic_label: '2'
+                      politic_link: '3'
+                      social_links:
+                        - social_link: link1
+                          social_name: name1
+                        - social_link: link2
+                          social_name: name2
+                        - social_link: link3
+                          social_name: name3
+                      developed_label: '2'
+                      developed_by_label: '3'
+                      developed_by_link: '3'
+                      cookie_text: '2'
+                      cookie_btn_text: '2'
+        '404':
+          $ref: '#/components/responses/404-Error'
+      operationId: get-parts
+      description: 'Get header, footer, preloader'
+      parameters:
+        - $ref: '#/components/parameters/lang'
+    parameters: []
+components:
+  schemas: {}
+  securitySchemes: {}
+  responses:
+    404-Error:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            properties:
+              status:
+                type: string
+                minLength: 1
+            required:
+              - status
+            x-examples:
+              example-1:
+                status: error
+          examples:
+            example:
+              value:
+                status: error
+  parameters:
+    lang:
+      name: lang
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - en
+          - ru
+          - uk
+        default: en
+      description: Current language
+tags:
+  - name: Main page
+  - name: Page parts
