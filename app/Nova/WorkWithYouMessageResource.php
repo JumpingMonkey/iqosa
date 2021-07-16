@@ -3,19 +3,25 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class JoinPopupMessagesResource extends Resource
+class WorkWithYouMessageResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\JoinPopupMessageModel::class;
+    public static $model = \App\Models\WorkWithYouPopupMessageModel::class;
+
+    /**
+     * The single value that should be used to represent the resource when being displayed.
+     *
+     * @var string
+     */
+    public static $title = 'id';
 
     /**
      * The logical group associated with the resource.
@@ -26,15 +32,8 @@ class JoinPopupMessagesResource extends Resource
 
     public static function label()
     {
-        return 'Join messages';
+        return 'WorkWithYou messages';
     }
-
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
-    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -55,13 +54,11 @@ class JoinPopupMessagesResource extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name', 'name'),
-            Text::make('Vacancy','vacancy'),
-            Text::make('Email', 'email')
-                ->hideFromIndex(),
-            File::make('File', 'file'),
-            Text::make('Linkedin', 'linkedin')
-                ->hideFromIndex(),
+            Text::make('First Name', 'first_name'),
+            Text::make('Last Name', 'last_name'),
+            Text::make('Phone', 'phone_number'),
+            Text::make('Email', 'email'),
+            Text::make('Message', 'message'),
         ];
     }
 

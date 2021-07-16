@@ -70,6 +70,9 @@ Route::middleware('locale')->group(function (){
     Route::get('/vacancies', [VacancyController::class , 'getVacanciesList']);
 //post
     Route::post('/join_popup_send', [PopupsController::class, 'join_popup_post']);
+    Route::post('/say_hi_popup_send', [PopupsController::class, 'say_hi_popup_post']);
+    Route::post('/work_with_you_popup_send', [PopupsController::class, 'work_with_you_popup_post']);
+
 });
 
 

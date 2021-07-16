@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class JoinPopupPostRequest extends FormRequest
+class SayHiPopupRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,24 +21,15 @@ class JoinPopupPostRequest extends FormRequest
      *
      * @return array
      */
-
     public function rules()
     {
         return [
-            'name' => 'required|string|max:250',
-            'vacancy' => 'required|string|max:500',
+            'first_name' => 'required|string|max:250',
+            'last_name' => 'required|string|max:500',
             'email' => 'required|email|max:250',
-//            'file'=> 'sometimes|mimes:pdf,doc,docx|max:50000000',
+            'resume'=> 'sometimes|mimes:pdf,doc,docx,log|max:50000000',
             'linkedin' => 'required|string|max:250',
+            'message' => 'required|string|max:1000',
         ];
     }
-
-//    public function messages()
-//    {
-//
-//        return [
-//            'name.required' => 'A title is required111',
-//            'vacancy.required' => 'A title is required1112222',
-//        ];
-//    }
 }
