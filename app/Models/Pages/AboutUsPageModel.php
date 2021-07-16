@@ -53,13 +53,13 @@ class AboutUsPageModel extends Model
         'slider_text',
         'bottom_block_text',
         'bottom_block_hover_text',
-        'main_video',
+
     ];
 
     public $mediaToUrl = [
         'main_picture',
         'preview_video',
-        'main_video',
+//        'main_video',
         'slider_pictures',
         'picture',
         'bottom_block_picture',
@@ -180,7 +180,11 @@ class AboutUsPageModel extends Model
         try{
 
             $this->getMembers();
-            return self::normalizeData($this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']));
+            $data = $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+            if (array_key_exists('main_video', $data)){
+                $data['main_video'] = $this->getOneMedia($data['main_video']);
+            };
+            return self::normalizeData($data);
 
         } catch (\Exception $ex){
             throw new ModelNotFoundException();
