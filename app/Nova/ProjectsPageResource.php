@@ -64,7 +64,8 @@ class ProjectsPageResource extends Resource
                 ->addLayout('Толстый текст', 'bold_text', [
                     Text::make('Текст', 'text'),
                 ])
-                ->button('Добавить линию заголовка'),
+                ->button('Добавить линию заголовка')
+                ->limit(2),
 
             Flexible::make('Подзаголовок', 'projects_subtitle')
                 ->addLayout('Линия подзаголовка', 'subtitle_line', [

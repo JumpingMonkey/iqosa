@@ -122,7 +122,8 @@ class MainPageResource extends Resource
                         ->addLayout('Тонкий текст', 'thin_text', [
                             Text::make('Текст', 'text'),
                         ])
-                        ->button('Добавить строку'),
+                        ->button('Добавить строку')
+                    ->limit(2),
 
                     Text::make('Часть текста ссылки (с анимацией)', 'team_link_text_animated')->hideFromIndex(),
                     Text::make('Часть текста ссылки (без анимации)', 'team_link_text')->hideFromIndex(),

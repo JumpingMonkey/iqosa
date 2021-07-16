@@ -46,14 +46,14 @@ class ProjectsPageModel extends Model
 
         if (array_key_exists('projects_title', $object)){
             foreach ($object["projects_title"] as $titleLine){
-                $projectsTitle[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+                $projectsTitle[$titleLine['layout']] = $titleLine["attributes"]["text"];
             }
             $object["projects_title"] = $projectsTitle;
         }
 
         if (array_key_exists('projects_subtitle', $object)){
             foreach ($object["projects_subtitle"] as $titleLine){
-                $projectsSubtitle[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+                $projectsSubtitle[] = $titleLine["attributes"]["text"];
             }
             $object["projects_subtitle"] = $projectsSubtitle;
         }
