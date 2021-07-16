@@ -26,6 +26,8 @@ class BlogPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 5;
+
     /**
      * The columns that should be searched.
      *
@@ -57,7 +59,7 @@ class BlogPageResource extends Resource
             Text::make('SEO-заголовок', 'seo_title')->hideFromIndex(),
             Text::make('Мета-описание', 'meta_description')->hideFromIndex(),
 
-            Text::make('Заголовок', 'blog_title')->hideFromIndex(),
+            Text::make('Заголовок текущей страницы', 'blog_title')->hideFromIndex(),
             Text::make('Текст ссылки в заголовке', 'blog_link_text')->hideFromIndex(),
             Text::make('Якорь ссылки в заголовке', 'blog_link')->hideFromIndex(),
 

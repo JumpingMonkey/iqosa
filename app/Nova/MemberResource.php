@@ -25,11 +25,13 @@ class MemberResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 2;
+
     public static $group = 'Objects';
 
     public static function label()
     {
-        return 'Members';
+        return 'Team';
     }
 
     /**

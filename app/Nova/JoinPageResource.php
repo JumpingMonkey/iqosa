@@ -26,6 +26,8 @@ class JoinPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 9;
+
     /**
      * The columns that should be searched.
      *

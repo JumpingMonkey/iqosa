@@ -26,6 +26,8 @@ class VacancyResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 4;
+
     /**
      * The columns that should be searched.
      *
@@ -59,11 +61,11 @@ class VacancyResource extends Resource
                 ->rules('required')
                 ->creationRules('unique:vacancies'),
 
-            Text::make('Текст сверху', 'vacancy_top_text'),
+            Text::make('Текст сверху', 'vacancy_top_text')->hideFromIndex(),
 
             Trix::make('Обязанности', 'vacancy_responsibilities')->alwaysShow(),
 
-            Text::make('Текст снизу', 'vacancy_bottom_text'),
+            Text::make('Текст снизу', 'vacancy_bottom_text')->hideFromIndex(),
 
             Flexible::make('Описание', 'vacancy_description')
                 ->addLayout('Абзац', 'paragraph', [

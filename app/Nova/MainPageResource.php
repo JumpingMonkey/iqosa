@@ -33,6 +33,8 @@ class MainPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 1;
+
     /**
      * The columns that should be searched.
      *
@@ -67,18 +69,16 @@ class MainPageResource extends Resource
             Tabs::make('Блоки главной страницы', [
                 Tab::make('Главный блок', [
                     Flexible::make('Заголовок', 'hero_title')
-                        ->addLayout('Линия текста', 'title_lines', [
-                            Text::make('Текст', 'title_line'),
+                        ->addLayout('Линия текста', 'text_line', [
+                            Text::make('Текст', 'text'),
                         ])
-                        ->button('Добавить линию')
-                        ->limit(3),
+                        ->button('Добавить линию'),
 
                     Flexible::make('Текст', 'hero_text')
-                        ->addLayout('Линия текста', 'text_lines', [
-                            Text::make('Текст', 'text_line'),
+                        ->addLayout('Линия текста', 'text_line', [
+                            Text::make('Текст', 'text'),
                         ])
-                        ->button('Добавить линию')
-                        ->limit(4),
+                        ->button('Добавить линию'),
 
                     Text::make('Часть текста ссылки (без анимации)', 'hero_link_text')->hideFromIndex(),
                     Text::make('Часть текста ссылки (с анимацией)', 'hero_link_text_animated')->hideFromIndex(),
@@ -98,8 +98,8 @@ class MainPageResource extends Resource
 
 
 
-                    Text::make('Часть заголовока (без анимации)', 'projects_title')->hideFromIndex(),
-                    Text::make('Часть заголовока (с анимацией)', 'projects_title_animated')->hideFromIndex(),
+                    Text::make('Часть заголовка (без анимации)', 'projects_title')->hideFromIndex(),
+                    Text::make('Часть заголовка (с анимацией)', 'projects_title_animated')->hideFromIndex(),
                     Text::make('Ссылка', 'projects_title_link')->hideFromIndex(),
                     Text::make('Текст ссылки текущего проекта (с анимацией)', 'projects_current_text_animated')->hideFromIndex(),
                     Text::make('Текст ссылки текущего проекта (без анимации)', 'projects_current_text')->hideFromIndex(),
@@ -122,7 +122,8 @@ class MainPageResource extends Resource
                         ->addLayout('Тонкий текст', 'thin_text', [
                             Text::make('Текст', 'text'),
                         ])
-                        ->button('Добавить строку'),
+                        ->button('Добавить строку')
+                    ->limit(2),
 
                     Text::make('Часть текста ссылки (с анимацией)', 'team_link_text_animated')->hideFromIndex(),
                     Text::make('Часть текста ссылки (без анимации)', 'team_link_text')->hideFromIndex(),

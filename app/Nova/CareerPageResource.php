@@ -25,6 +25,8 @@ class CareerPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 7;
+
     /**
      * The columns that should be searched.
      *
@@ -65,8 +67,8 @@ class CareerPageResource extends Resource
 
             Text::make('Текст для нумерации вакансий', 'numeration_text')->hideFromIndex(),
 
-            Text::make('Часть текста ссылки (без анимации)', 'vacancy_link_text')->hideFromIndex(),
             Text::make('Часть текста ссылки (с анимацией)', 'vacancy_link_text_animated')->hideFromIndex(),
+            Text::make('Часть текста ссылки (без анимации)', 'vacancy_link_text')->hideFromIndex(),
 
             Text::make('Заголовок для нижней ссылки (жирный)', 'bottom_title_bold')->hideFromIndex(),
             Text::make('Заголовок для нижней ссылки (тонкий)', 'bottom_title_thin')->hideFromIndex(),

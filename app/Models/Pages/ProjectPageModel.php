@@ -5,6 +5,7 @@ namespace App\Models\Pages;
 use Anrail\NovaMediaLibraryTools\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
 class ProjectPageModel extends Model
@@ -39,4 +40,12 @@ class ProjectPageModel extends Model
         'link_block_text',
         'next_project_text'
     ];
+
+    public function getFullData(){
+        try{
+            return $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+        } catch (\Exception $ex){
+            throw new ModelNotFoundException();
+        }
+    }
 }

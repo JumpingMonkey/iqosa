@@ -5,6 +5,7 @@ namespace App\Models\Pages;
 use Anrail\NovaMediaLibraryTools\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\Translatable\HasTranslations;
 
 class MediaPageModel extends Model
@@ -39,4 +40,38 @@ class MediaPageModel extends Model
     public $fromStrToJson = [
         'media_images',
     ];
+
+    public static function normalizeData($object){
+        $mediaText = [];
+        $mediaImages = [];
+
+
+        if (array_key_exists('media_text', $object)){
+            foreach ($object["media_text"] as $titleLine){
+                $mediaText[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+            }
+            $object["media_text"] = $mediaText;
+        }
+
+        if (array_key_exists('media_images', $object)){
+            foreach ($object["media_images"] as $titleLine){
+                $mediaImages[] = [$titleLine['layout'] => $titleLine["attributes"]["picture"]];
+            }
+            $object["media_images"] = $mediaImages;
+        }
+
+        return $object;
+
+    }
+
+    public function getFullData(){
+        try{
+
+            return self::normalizeData($this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']));
+
+        } catch (\Exception $ex){
+            throw new ModelNotFoundException();
+        }
+
+    }
 }

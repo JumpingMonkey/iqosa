@@ -24,6 +24,8 @@ class UserResource extends Resource
      */
     public static $title = 'name';
 
+    public static $priority = 5;
+
     /**
      * The columns that should be searched.
      *

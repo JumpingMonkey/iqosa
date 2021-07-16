@@ -25,6 +25,8 @@ class WorkWithYouPageResource extends Resource
      */
     public static $title = 'id';
 
+    public static $priority = 11;
+
     /**
      * The columns that should be searched.
      *

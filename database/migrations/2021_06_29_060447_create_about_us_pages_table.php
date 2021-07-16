@@ -19,7 +19,7 @@ class CreateAboutUsPagesTable extends Migration
             $table->json('meta_description');
             $table->string('main_picture')->nullable();
             $table->string('preview_video')->nullable();
-            $table->string('main_video')->nullable();
+            $table->json('main_video');
             $table->json('hero_left_text');
             $table->json('hero_right_text');
             $table->json('first_animated_text');
