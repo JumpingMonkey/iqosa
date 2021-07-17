@@ -28,7 +28,7 @@ class JoinPopupPostRequest extends FormRequest
             'name' => 'required|string|max:250',
             'vacancy' => 'required|string|max:500',
             'email' => 'required|email|max:250',
-//            'file'=> 'sometimes|mimes:pdf,doc,docx|max:50000000',
+            'file'=> 'sometimes|mimes:pdf,doc,docx|max:50000000',
             'linkedin' => 'required|string|max:250',
         ];
     }
