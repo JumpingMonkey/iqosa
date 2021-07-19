@@ -10,6 +10,7 @@ use Eminiarts\Tabs\TabsOnEdit;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
@@ -129,7 +130,7 @@ class FooterResource extends Resource
 
                 ]),
                 Tab::make('Блок с куки', [
-                    Text::make('Текст блока с куки', 'cookie_text')->hideFromIndex(),
+                    Trix::make('Текст блока с куки', 'cookie_text')->hideFromIndex(),
                     Text::make('Текст кнопки', 'cookie_btn_text')->hideFromIndex(),
                 ])
 
