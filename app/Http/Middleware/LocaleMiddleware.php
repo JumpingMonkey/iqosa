@@ -19,11 +19,11 @@ class LocaleMiddleware
      */
     public static function getLocale()
     {
+        if (request()->lang == 'ua'){
+            return 'uk';
+        }
         if (request()->filled('lang') && in_array(request()->lang, self::$languages)) {
             if (request()->lang != self::$mainLanguage){
-                if (request()->lang == 'ua'){
-                    return 'uk';
-                }
                 return request()->lang;
             }
         }
