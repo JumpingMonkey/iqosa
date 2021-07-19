@@ -14,7 +14,7 @@ return [
     'locales' => [
         'en' => 'EN',
         'ru' => 'RU',
-        'uk' => 'UA',
+        'ua' => 'UA',
     ],
 
     /*
