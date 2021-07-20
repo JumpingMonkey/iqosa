@@ -1,9 +1,5 @@
 <?php
 
-header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length');
-header('Access-Control-Allow-Origin: *');
-
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Pages\AboutUsPageController;
 use App\Http\Controllers\Pages\BlogPageController;
@@ -51,8 +47,6 @@ use App\Http\Controllers\MemberController;
 //        return response()->json(Translation::translateModelWithoutIdAndTime($member));
 //    });
 //});
-
-
 
 Route::middleware('locale')->group(function (){
     Route::get('/main', [MainPageController::class, 'index']);
