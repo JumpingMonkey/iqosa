@@ -55,19 +55,24 @@ class HeaderResource extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             MediaLibrary::make('Логотип', 'logo'),
             Flexible::make('Навигация', 'navigation')
-                ->addLayout('Пункт меню', 'navigation_item', [
+                ->addLayout('Проекты', 'navigation_item', [
                     Text::make('Название пункта', 'name'),
-                    Text::make('Ссылка', 'link')->default('def')->readonly()
+                    Text::make('Ссылка', 'link')->default('/projects')->readonly()
 
                 ])
-                ->addLayout('Пункт меню', 'navigation_item', [
+                ->addLayout('О нас', 'navigation_item', [
                     Text::make('Название пункта', 'name'),
-                    Text::make('Ссылка', 'link')->default('def')->readonly()
+                    Text::make('Ссылка', 'link')->default('/about-us')->readonly()
 
                 ])
-                ->addLayout('Пункт меню', 'navigation_item', [
+                ->addLayout('Медиа', 'navigation_item', [
                     Text::make('Название пункта', 'name'),
-                    Text::make('Ссылка', 'link')->default('def')->readonly()
+                    Text::make('Ссылка', 'link')->default('/media')->readonly()
+
+                ])
+                ->addLayout('Контакты', 'navigation_item', [
+                    Text::make('Название пункта', 'name'),
+                    Text::make('Ссылка', 'link')->default('/contact')->readonly()
 
                 ])
                         ->button('Добавить пункт'),
