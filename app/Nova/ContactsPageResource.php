@@ -59,7 +59,8 @@ class ContactsPageResource extends Resource
             Text::make('SEO-заголовок', 'seo_title')->hideFromIndex(),
             Text::make('Мета-описание', 'meta_description')->hideFromIndex(),
 
-            Trix::make('Адрес', 'address')->alwaysShow(),
+            Text::make('Адрес (страна)', 'address'),
+            Text::make('Адрес (город, офис)', 'address_two'),
 
             Text::make('Координаты широты', 'latitude')->hideFromIndex(),
             Text::make('Координаты долготы', 'longitude')->hideFromIndex(),

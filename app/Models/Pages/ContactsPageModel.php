@@ -18,6 +18,7 @@ class ContactsPageModel extends Model
         'seo_title',
         'meta_description',
         'address',
+        'address_two',
         'latitude',
         'longitude',
         'map_link',
@@ -29,6 +30,7 @@ class ContactsPageModel extends Model
         'seo_title',
         'meta_description',
         'address',
+        'address_two',
         'map_link_text',
         'map_link_text-animated'
     ];
