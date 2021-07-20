@@ -48,7 +48,7 @@ class MediaPageModel extends Model
 
         if (array_key_exists('media_text', $object)){
             foreach ($object["media_text"] as $titleLine){
-                $mediaText[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+                $mediaText[] = $titleLine["attributes"]["text"];
             }
             $object["media_text"] = $mediaText;
         }
