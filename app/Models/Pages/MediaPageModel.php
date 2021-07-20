@@ -34,7 +34,8 @@ class MediaPageModel extends Model
 
     public $mediaToUrl = [
         'media_images',
-        'picture'
+        'picture',
+        'hover_picture'
     ];
 
     public $fromStrToJson = [
@@ -55,7 +56,7 @@ class MediaPageModel extends Model
 
         if (array_key_exists('media_images', $object)){
             foreach ($object["media_images"] as $titleLine){
-                $mediaImages[] = [$titleLine['layout'] => $titleLine["attributes"]["picture"]];
+                $mediaImages[] = $titleLine["attributes"];
             }
             $object["media_images"] = $mediaImages;
         }

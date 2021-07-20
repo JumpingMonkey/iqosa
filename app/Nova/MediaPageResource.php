@@ -70,11 +70,9 @@ class MediaPageResource extends Resource
 
 
             Flexible::make('Изображения', 'media_images')
-                ->addLayout('Изображение на синем фоне', 'media_image_blue', [
+                ->addLayout('Изображение', 'media_image', [
                     MediaLibrary::make('Изображение', 'picture')->hideFromIndex(),
-                ])
-                ->addLayout('Изображение без фона', 'media_image', [
-                    MediaLibrary::make('Изображение', 'picture')->hideFromIndex(),
+                    MediaLibrary::make('Изображение при наведении', 'hover_picture')->hideFromIndex()
                 ])
                 ->hideFromIndex()
                 ->button('Добавить изображение'),
