@@ -124,10 +124,6 @@ class FooterResource extends Resource
                             Text::make('Ссылка соцсети', 'social_link'),
                         ])->button('Добавить соцсеть'),
 
-                    Text::make('Ярлык для разработчика', 'developed_label')->hideFromIndex(),
-                    Text::make('Название разработчика', 'developed_by_label')->hideFromIndex(),
-                    Text::make('Ссылка на разработчика', 'developed_by_link')->hideFromIndex(),
-
                 ]),
                 Tab::make('Блок с куки', [
                     Trix::make('Текст блока с куки', 'cookie_text')->hideFromIndex(),
