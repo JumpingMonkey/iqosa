@@ -164,7 +164,7 @@ class AboutUsPageModel extends Model
 
         if (array_key_exists('team_text', $object)){
             foreach ($object["team_text"] as $teamTextLine){
-                $teamText[] = [$teamTextLine["layout"] => $teamTextLine["attributes"]["text"]];
+                $teamText[$teamTextLine["layout"]] = $teamTextLine["attributes"]["text"];
             }
             $object["team_text"] = $teamText;
         }
