@@ -38,7 +38,7 @@ class BlogPageModel extends Model
 
         if (array_key_exists('blog_text', $object)){
             foreach ($object["blog_text"] as $titleLine){
-                $blogText[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+                $blogText[] = $titleLine["attributes"]["text"];
             }
             $object["blog_text"] = $blogText;
         }
