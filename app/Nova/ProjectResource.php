@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
@@ -98,7 +99,7 @@ class ProjectResource extends Resource
                     MediaLibrary::make('Четвертая картинка', 'fourth_image'),
                     Text::make('Первый текст для четвертой картинки', 'fourth_image_text1'),
                     Text::make('Второй текст для четвертой картинки', 'fourth_image_text2'),
-                    Text::make('Текст в центре галереи', 'center_text'),
+                    Trix::make('Текст в центре галереи', 'center_text'),
                 ])->button('Добавить блок'),
 
 //          BelongsToMany::make('Members'),
