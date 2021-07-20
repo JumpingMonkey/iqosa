@@ -57,7 +57,20 @@ class HeaderResource extends Resource
             Flexible::make('Навигация', 'navigation')
                 ->addLayout('Пункт меню', 'navigation_item', [
                     Text::make('Название пункта', 'name'),
-                ])->button('Добавить пункт'),
+                    Text::make('Ссылка', 'link')->default('def')->readonly()
+
+                ])
+                ->addLayout('Пункт меню', 'navigation_item', [
+                    Text::make('Название пункта', 'name'),
+                    Text::make('Ссылка', 'link')->default('def')->readonly()
+
+                ])
+                ->addLayout('Пункт меню', 'navigation_item', [
+                    Text::make('Название пункта', 'name'),
+                    Text::make('Ссылка', 'link')->default('def')->readonly()
+
+                ])
+                        ->button('Добавить пункт'),
             Text::make('Надпись на кнопке', 'btn_text'),
             Text::make('Ссылка на кнопке', 'btn_link'),
         ];

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Add3And4AnimatedTextColumnsToAboutPageTable extends Migration
+class RenameSecondAnimTextColToAboutUsPageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class Add3And4AnimatedTextColumnsToAboutPageTable extends Migration
      */
     public function up()
     {
-        Schema::table('about_page', function (Blueprint $table) {
-
+        Schema::table('about_us_pages', function (Blueprint $table) {
+            $table->renameColumn('second_animated_text', 'third_animated_text');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -25,8 +24,8 @@ class Add3And4AnimatedTextColumnsToAboutPageTable extends Migration
      */
     public function down()
     {
-        Schema::table('about_page', function (Blueprint $table) {
-            //
+        Schema::table('about_us_pages', function (Blueprint $table) {
+            $table->renameColumn('third_animated_text', 'second_animated_text');
         });
     }
 }

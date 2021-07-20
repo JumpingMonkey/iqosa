@@ -87,6 +87,7 @@ class AboutUsPageResource extends Resource
                         ])->button('Добавить строку'),
 
                     Trix::make('Первый анимированный текст', 'first_animated_text')->alwaysShow(),
+                    Trix::make('Второй анимированный текст', 'second_animated_text')->alwaysShow(),
                 ]),
 
                 Tab::make('Команда', [
@@ -111,7 +112,8 @@ class AboutUsPageResource extends Resource
                     Text::make('Часть текста ссылки (без анимации)', 'team_link_text')->hideFromIndex(),
                     Text::make('Ссылка', 'team_link')->hideFromIndex(),
 
-                    Trix::make('Второй анимированный текст', 'second_animated_text')->alwaysShow(),
+                    Trix::make('Третий анимированный текст', 'third_animated_text')->alwaysShow(),
+                    Trix::make('Четвертый анимированный текст', 'fourth_animated_text')->alwaysShow(),
                 ]),
 
                 Tab::make('Слайдер', [
