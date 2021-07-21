@@ -61,7 +61,7 @@ class FooterModel extends Model
     ];
 
     public $fromStrToJson = [
-        'left_emails',
+//        'left_emails',
         'social_links',
     ];
 
@@ -69,15 +69,30 @@ class FooterModel extends Model
     {
         $footer = self::firstOrFail()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
 
-        $leftEmails = [];
+//        $rightLinks = [];
         $leftTels = [];
         $centerEmails = [];
         $socialLinks = [];
-    if($footer["left_emails"]){
-        foreach ($footer["left_emails"] as $email){
-            $leftEmails[] = $email["attributes"]["E-mail"];
-        }
-}
+
+//    if($footer["right_links"]){
+//        $prom = [];
+//        $linkContent = [];
+//        foreach ($footer["right_links"] as $links){
+//
+//                foreach ($links['attributes']['link_content'] as $cont){
+//                    $prom[] = [$cont['layout'] => $cont['attributes']['link']];
+//                }
+//
+//
+//            $linkContent['link_text'] = $links['attributes']['link_text'];
+//            $linkContent['link_content'] = $links['attributes']['link_content'];
+//
+//
+//            $rightLinks[$links['layout']] = $links["attributes"];
+//        }
+//}
+//        $footer["right_links"] = $rightLinks;
+
     if($footer["left_tels"]){
         foreach ($footer["left_tels"] as $tel){
             $leftTels[] = [
@@ -86,6 +101,8 @@ class FooterModel extends Model
             ];
         }
     }
+        $footer["left_tels"] = $leftTels;
+
         if($footer["center_emails"]){
         foreach ($footer["center_emails"] as $email){
             $centerEmails[] = [
@@ -94,6 +111,8 @@ class FooterModel extends Model
             ];
         }
         }
+        $footer["center_emails"] = $centerEmails;
+
             if($footer["social_links"]) {
                 foreach ($footer["social_links"] as $link) {
                     $socialLinks[] = [
@@ -102,10 +121,9 @@ class FooterModel extends Model
                     ];
                 }
             }
-        $footer["left_emails"] = $leftEmails;
-        $footer["left_tels"] = $leftTels;
-        $footer["center_emails"] = $centerEmails;
+
         $footer["social_links"] = $socialLinks;
+        $footer['year'] = date('Y');
 
         return $footer;
     }

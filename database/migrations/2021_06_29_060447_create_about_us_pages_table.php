@@ -30,7 +30,7 @@ class CreateAboutUsPagesTable extends Migration
             $table->string('team_link')->nullable();
             $table->json('second_animated_text');
             $table->json('slider_text');
-            $table->string('slider_pictures')->nullable();
+            $table->text('slider_pictures')->nullable();
             $table->string('bottom_block_picture')->nullable();
             $table->json('bottom_block_text');
             $table->json('bottom_block_hover_text');
