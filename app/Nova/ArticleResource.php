@@ -70,12 +70,7 @@ class ArticleResource extends Resource
                 ->addLayout('Автор', 'author', [
                     Text::make('Имя автора', 'author_name'),
                 ])->button('Добавить автора'),
-            Flexible::make('Темы', 'subjects')
-                ->addLayout('Тема', 'subject', [
-                    Text::make('Название темы', 'subject_name'),
-                ])->button('Добавить тему')
-            ->limit(1),
-
+            Text::make('Темы', 'subjects'),
 
             Flexible::make('Контент', 'content')
                 ->addLayout('Блок с текстом', 'text_block', [

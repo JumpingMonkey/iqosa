@@ -53,12 +53,12 @@ class ArticleModel extends Model
             $object["authors"] = $authors;
         }
 //
-        if (array_key_exists('subjects', $object)){
-            foreach ($object["subjects"] as $titleLine){
-                $subjects[] = $titleLine["attributes"]["subject_name"];
-            }
-            $object["subjects"] = $subjects;
-        }
+//        if (array_key_exists('subjects', $object)){
+//            foreach ($object["subjects"] as $titleLine){
+//                $subjects[] = $titleLine["attributes"]["subject_name"];
+//            }
+//            $object["subjects"] = $subjects;
+//        }
 //
         if (array_key_exists('content', $object)){
             foreach ($object["content"] as $contentItem) {
@@ -103,7 +103,7 @@ class ArticleModel extends Model
 
     public static function getFullDataOneAtricle(self $object){
         try{
-            return self::normalizeData($object->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']));
+            return self::normalizeData($object->getAllWithMediaUrlWithout(['id', 'updated_at']));
 
         } catch (\Exception $ex){
             throw new ModelNotFoundException();
