@@ -16,6 +16,7 @@ class HeaderModel extends Model
     protected $fillable = [
         'logo',
         'navigation',
+        'social_links',
     ];
 
     public $translatable = [
@@ -28,11 +29,28 @@ class HeaderModel extends Model
         'logo',
     ];
 
+    public $fromStrToJson = [
+        'social_links',
+    ];
+
     public static function getHeader(){
 
         $header = self::firstOrFail()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
 
+        $socialLinks = [];
         $headerNav = [];
+
+        if($header["social_links"]) {
+            foreach ($header["social_links"] as $link) {
+                $socialLinks[] = [
+                    "social_link" => $link["attributes"]["social_link"],
+                    "social_name" => $link["attributes"]["social_name"],
+                ];
+            }
+        }
+
+        $header["social_links"] = $socialLinks;
+
         if($header["navigation"]) {
             foreach ($header["navigation"] as $navItem) {
                 $headerNav[] = [

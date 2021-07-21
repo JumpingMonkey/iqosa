@@ -83,6 +83,11 @@ class HeaderResource extends Resource
                         ->button('Добавить пункт'),
             Text::make('Надпись на кнопке', 'btn_text'),
             Text::make('Ссылка на кнопке', 'btn_link'),
+            Flexible::make('Социальные сети', 'social_links')
+                ->addLayout('Социальная сеть', 'social_item', [
+                    Text::make('Название соцсети', 'social_name'),
+                    Text::make('Ссылка соцсети', 'social_link'),
+                ])->button('Добавить соцсеть'),
         ];
     }
 
