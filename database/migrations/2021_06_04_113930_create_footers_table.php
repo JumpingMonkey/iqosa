@@ -19,7 +19,7 @@ class CreateFootersTable extends Migration
             $table->json('left_city');
             $table->json('left_address');
             $table->string('left_google_map_link')->nullable();
-            $table->json('left_emails');
+            $table->string('left_emails');
             $table->json('left_tels');
             $table->json('center_title');
             $table->json('center_emails');

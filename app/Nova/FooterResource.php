@@ -68,10 +68,7 @@ class FooterResource extends Resource
                     Text::make('Адрес', 'left_address')->hideFromIndex(),
                     Text::make('Ссылка на google map', 'left_google_map_link')->hideFromIndex(),
 
-                    Flexible::make('E-mails', 'left_emails')
-                        ->addLayout('E-mail', 'E-mails', [
-                            Text::make('E-mail', 'E-mail'),
-                        ])->button('Добавить e-mail'),
+                    Text::make('E-mails', 'left_emails'),
 
                     Flexible::make('Телефоны', 'left_tels')
                         ->addLayout('Телефон', 'tel_info', [
