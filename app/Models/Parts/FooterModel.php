@@ -90,7 +90,7 @@ class FooterModel extends Model
         foreach ($footer["center_emails"] as $email){
             $centerEmails[] = [
                 'title' => $email["attributes"]["title"],
-                'e-mail' => $email["attributes"]["e-mail"],
+                'email' => $email["attributes"]["e-mail"],
             ];
         }
         }
