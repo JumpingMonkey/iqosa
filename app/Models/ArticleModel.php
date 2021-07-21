@@ -65,7 +65,7 @@ class ArticleModel extends Model
                 if ($contentItem['layout'] == 'text_block') {
                     $content[] = [$contentItem['layout'] => $contentItem["attributes"]["text"]];
                 }
-
+                $cont = [];
                 if ($contentItem['layout'] == 'gallery') {
 
                     foreach ($contentItem["attributes"]["gallery_items"] as $galleryItem){
@@ -79,9 +79,12 @@ class ArticleModel extends Model
 
                         $element["picture_text"] = $texts;
 
-                        $content[] = [$contentItem['layout'] => $element];
-
+                        $cont[] = $element;
+                        
                     }
+
+                    $content[] = [$contentItem['layout'] => $cont];
+
                 }
             }
             $object["content"] = $content;
