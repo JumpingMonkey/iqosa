@@ -73,7 +73,8 @@ class ArticleResource extends Resource
             Flexible::make('Темы', 'subjects')
                 ->addLayout('Тема', 'subject', [
                     Text::make('Название темы', 'subject_name'),
-                ])->button('Добавить тему'),
+                ])->button('Добавить тему')
+            ->limit(1),
 
 
             Flexible::make('Контент', 'content')
