@@ -23,7 +23,7 @@ class ContactsPageModel extends Model
         'longitude',
         'map_link',
         'map_link_text',
-        'map_link_text-animated'
+        'map_link_text_animated'
     ];
 
     public $translatable = [
@@ -32,7 +32,7 @@ class ContactsPageModel extends Model
         'address',
         'address_two',
         'map_link_text',
-        'map_link_text-animated'
+        'map_link_text_animated'
     ];
 
 

@@ -67,7 +67,7 @@ class ContactsPageResource extends Resource
             Text::make('Ссылка на карту', 'map_link')->hideFromIndex(),
 
             Text::make('Часть текста ссылки на карту (без анимации)', 'map_link_text')->hideFromIndex(),
-            Text::make('Часть текста ссылки на карту (с анимацией)', 'map_link_text-animated')->hideFromIndex(),
+            Text::make('Часть текста ссылки на карту (с анимацией)', 'map_link_text_animated')->hideFromIndex(),
 
         ];
     }
