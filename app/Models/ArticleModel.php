@@ -80,7 +80,7 @@ class ArticleModel extends Model
                         $element["picture_text"] = $texts;
 
                         $cont[] = $element;
-                        
+
                     }
 
                     $content[] = [$contentItem['layout'] => $cont];

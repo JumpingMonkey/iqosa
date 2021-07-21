@@ -86,9 +86,9 @@ class ArticleResource extends Resource
                             Flexible::make('Текст для изображения', 'picture_text')
                                 ->addLayout('Текст надписи', 'text_layout', [
                                     Text::make('Текст', 'text'),
-                                ])->button('Добавить текст')
+                                ])->button('Добавить текст')->limit(2)
 
-                        ])->button('Добавить элемент')
+                        ])->button('Добавить элемент')->limit(2)
 
                 ])->hideFromIndex()->button('Добавить блок'),
 
