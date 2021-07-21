@@ -75,6 +75,11 @@ class HeaderResource extends Resource
                     Text::make('Ссылка', 'link')->default('/contact')->readonly()
 
                 ])
+                ->addLayout('Карьера', 'navigation_item', [
+                    Text::make('Название пункта', 'name'),
+                    Text::make('Ссылка', 'link')->default('/career')->readonly()
+
+                ])
                         ->button('Добавить пункт'),
             Text::make('Надпись на кнопке', 'btn_text'),
             Text::make('Ссылка на кнопке', 'btn_link'),
