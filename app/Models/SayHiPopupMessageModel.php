@@ -9,5 +9,5 @@ class SayHiPopupMessageModel extends Model
 {
     use HasFactory;
 
-    protected $fillable = array('first_name', 'last_name', 'email', 'resume', 'linkedin', 'message');
+    protected $fillable = array('first_name', 'last_name', 'email', 'message');
 }

@@ -59,8 +59,6 @@ class SayHiPopupMessageResource extends Resource
             Text::make('First name', 'first_name'),
             Text::make('Last name', 'last_name'),
             Text::make('Email', 'email'),
-            File::make('Resume/CV', 'resume'),
-            Text::make('LinkedIn', 'linkedin'),
             Text::make('Message', 'message')
         ];
     }
