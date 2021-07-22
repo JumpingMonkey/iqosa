@@ -73,7 +73,7 @@ class JoinPageModel extends Model
 
         if (array_key_exists('title_small', $object)){
             foreach ($object["title_small"] as $titleLine){
-                $titleSmall[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+                $titleSmall[] = $titleLine["attributes"]["text"];
             }
             $object["title_small"] = $titleSmall;
         }
