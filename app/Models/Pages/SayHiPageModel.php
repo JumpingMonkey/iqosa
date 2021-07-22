@@ -64,14 +64,14 @@ class SayHiPageModel extends Model
 
         if (array_key_exists('title_small', $object)){
             foreach ($object["title_small"] as $titleLine){
-                $titleSmall[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+                $titleSmall[] = $titleLine["attributes"]["text"];
             }
             $object["title_small"] = $titleSmall;
         }
 
         if (array_key_exists('form_title', $object)){
             foreach ($object["form_title"] as $titleLine){
-                $formTitle[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+                $formTitle[] = $titleLine["attributes"]["text"];
             }
             $object["form_title"] = $formTitle;
         }
