@@ -69,29 +69,41 @@ class FooterModel extends Model
     {
         $footer = self::firstOrFail()->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
 
-//        $rightLinks = [];
+        $rightLinks = [];
         $leftTels = [];
         $centerEmails = [];
         $socialLinks = [];
 
-//    if($footer["right_links"]){
-//        $prom = [];
-//        $linkContent = [];
-//        foreach ($footer["right_links"] as $links){
-//
-//                foreach ($links['attributes']['link_content'] as $cont){
-//                    $prom[] = [$cont['layout'] => $cont['attributes']['link']];
-//                }
-//
-//
+    if($footer["right_links"]){
+
+
+        foreach ($footer["right_links"] as $links){
+
+                $rr = [];
+                foreach ($links['attributes']['link_content'] as $cont){
+                    $linkContent = [];
+                    if(isset($cont['attributes']['link'])){
+                        $linkContent[] = $cont['attributes']['link'];
+                    }
+                    if(isset($cont['attributes']['file'])){
+                        $linkContent[] = $cont['attributes']['file'];
+                    }
+
+                }
+               $rr['link_text']  = $links['attributes']['link_text'];
+               $rr['link_content'] = $linkContent;
+
+                $rightLinks[] = $rr;
+
+
 //            $linkContent['link_text'] = $links['attributes']['link_text'];
 //            $linkContent['link_content'] = $links['attributes']['link_content'];
 //
 //
 //            $rightLinks[$links['layout']] = $links["attributes"];
-//        }
-//}
-//        $footer["right_links"] = $rightLinks;
+        }
+}
+        $footer["right_links"] = $rightLinks;
 
     if($footer["left_tels"]){
         foreach ($footer["left_tels"] as $tel){
