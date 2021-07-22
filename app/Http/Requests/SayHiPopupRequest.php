@@ -28,7 +28,7 @@ class SayHiPopupRequest extends FormRequest
             'last_name' => 'required|string|max:500',
             'email' => 'required|email|max:250',
             'resume'=> 'sometimes|mimes:pdf,doc,docx,log|max:50000000',
-            'linkedin' => 'required|string|max:250',
+            'linkedin' => 'string|max:250',
             'message' => 'required|string|max:1000',
         ];
     }
