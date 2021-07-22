@@ -25,7 +25,7 @@ class SayHiPopupRequest extends FormRequest
     {
         return [
             'first_name' => 'required|string|max:250',
-            'last_name' => 'required|string|max:500',
+            'last_name' => 'string|max:500',
             'email' => 'required|email|max:250',
             'resume'=> 'sometimes|mimes:pdf,doc,docx,log|max:50000000',
             'linkedin' => 'string|max:250',
