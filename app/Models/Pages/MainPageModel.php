@@ -39,6 +39,7 @@ class MainPageModel extends Model
         'team_link_text_animated',
         'team_link_text',
         'team_link',
+        'main_video',
     ];
 
     public $translatable = [
@@ -55,6 +56,10 @@ class MainPageModel extends Model
         'team_text',
         'team_link_text_animated',
         'team_link_text',
+    ];
+
+    public $mediaToUrl = [
+        'main_video'
     ];
 
 //    public function getTeamMembersAttribute($value)
@@ -141,6 +146,8 @@ class MainPageModel extends Model
             }
             $object["team_text"] = $teamText;
         }
+
+
 
         return $object;
 

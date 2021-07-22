@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Models\MemberModel;
 use App\Models\ProjectModel;
+use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Eminiarts\Tabs\Tab;
 use Eminiarts\Tabs\Tabs;
@@ -83,6 +84,7 @@ class MainPageResource extends Resource
                     Text::make('Часть текста ссылки (без анимации)', 'hero_link_text')->hideFromIndex(),
                     Text::make('Часть текста ссылки (с анимацией)', 'hero_link_text_animated')->hideFromIndex(),
                     Text::make('Ссылка', 'hero_link')->hideFromIndex(),
+                    MediaLibrary::make('Главное видео', 'main_video')->hideFromIndex(),
 
 
                 ]),
