@@ -81,12 +81,11 @@ class FooterModel extends Model
 
                 $rr = [];
                 foreach ($links['attributes']['link_content'] as $cont){
-                    $linkContent = [];
                     if(isset($cont['attributes']['link'])){
-                        $linkContent[] = $cont['attributes']['link'];
+                        $linkContent = $cont['attributes']['link'];
                     }
                     if(isset($cont['attributes']['file'])){
-                        $linkContent[] = $cont['attributes']['file'];
+                        $linkContent = $cont['attributes']['file'];
                     }
 
                 }
