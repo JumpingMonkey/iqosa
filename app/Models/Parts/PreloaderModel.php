@@ -14,23 +14,39 @@ class PreloaderModel extends Model
 
     protected $fillable = [
         'content',
+        'content2'
     ];
 
     public $translatable = [
         'content',
+        'content2'
     ];
+// код который был раньше. Обрабатывет вывод контента прелоадера из одного флекс поля
+//    public static function getPreloader()
+//    {
+//        $preloader = self::firstOrFail()->content;
+//
+//        $preloaderNormalized = [];
+//
+//        foreach ($preloader as $preloaderLine){
+//            $preloaderNormalized[] = $preloaderLine["attributes"]["text"];
+//        }
+//
+//        return $preloaderNormalized;
+//    }
 
     public static function getPreloader()
     {
-        $preloader = self::firstOrFail()->content;
+        $preloader[] = self::firstOrFail()->content;
+        $preloader[] = self::firstOrFail()->content2;
 
-        $preloaderNormalized = [];
+//        $preloaderNormalized = [];
+//
+//        foreach ($preloader as $preloaderLine){
+//            $preloaderNormalized[] = $preloaderLine["attributes"]["text"];
+//        }
 
-        foreach ($preloader as $preloaderLine){
-            $preloaderNormalized[] = $preloaderLine["attributes"]["text"];
-        }
-
-        return $preloaderNormalized;
+        return $preloader;
     }
 
 }

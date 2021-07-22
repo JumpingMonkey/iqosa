@@ -6,6 +6,7 @@ use ClassicO\NovaMediaLibrary\MediaLibrary;
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
@@ -54,13 +55,17 @@ class PreloaderResource extends Resource
             Multilingual::make('Language'),
 
             ID::make(__('ID'), 'id')->sortable(),
+// Меняем флекс поле на текстовое и добавляем дополнительное текстовое поле.
+//            Flexible::make('Контент прелоадера', 'content')
+//                ->addLayout('Строка', 'text_line', [
+//
+//                    Trix::make('Текст', 'text')->alwaysShow()
+//
+//                ])->button('Добавить строку')
+ //
+            Text::make('Контент прелоадера 1', 'content'),
+            Text::make('Контент прелоадера 2', 'content2'),
 
-            Flexible::make('Контент прелоадера', 'content')
-                ->addLayout('Строка', 'text_line', [
-
-                    Trix::make('Текст', 'text')->alwaysShow()
-
-                ])->button('Добавить строку')
         ];
     }
 
