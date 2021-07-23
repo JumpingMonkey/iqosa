@@ -38,7 +38,7 @@ class PrivacyPolicyPageModel extends Model
 
         if (array_key_exists('subtitle', $object)){
             foreach ($object["subtitle"] as $titleLine){
-                $subTitle[] = [$titleLine['layout'] => $titleLine["attributes"]["text"]];
+                $subTitle[] = $titleLine["attributes"]["text"];
             }
             $object["subtitle"] = $subTitle;
         }
