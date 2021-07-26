@@ -14,7 +14,7 @@ class ProjectController extends Controller
      */
     public function getProjectList()
     {
-        $data = ProjectModel::query()->select('id', 'type', 'number', 'city', 'country', 'link', 'main_picture', 'release_date', 'area')->get();
+        $data = ProjectModel::query()->select('id', 'type', 'number', 'city', 'country', 'link', 'main_picture', 'release_date', 'area')->orderBy('sort_order')->get();
         $content = [];
         foreach ( $data as $Projects){
             $content[] = ProjectModel::getFullData($Projects);

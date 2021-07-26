@@ -6,11 +6,18 @@ use Anrail\NovaMediaLibraryTools\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Translatable\HasTranslations;
 
-class ProjectModel extends Model
+class ProjectModel extends Model implements Sortable
 {
-    use HasFactory, HasTranslations, HasMediaToUrl;
+    use HasFactory, HasTranslations, HasMediaToUrl, SortableTrait;
+
+    public $sortable = [
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
+    ];
 
     protected $table = "projects";
 
