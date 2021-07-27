@@ -56,11 +56,12 @@ class MainPageModel extends Model
         'team_text',
         'team_link_text_animated',
         'team_link_text',
-    ];
-
-    public $mediaToUrl = [
         'main_video'
     ];
+
+//    public $mediaToUrl = [
+//        'main_video'
+//    ];
 
 //    public function getTeamMembersAttribute($value)
 //    {
@@ -157,7 +158,13 @@ class MainPageModel extends Model
         try{
             $this->getProjects();
             $this->getMembers();
-            return self::normalizeData($this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']));
+            $data = $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
+            if (array_key_exists('main_video', $data)){
+                $data['main_video'] = $this->getOneMedia($data['main_video']);
+            };
+            return self::normalizeData($data);
+
         } catch (\Exception $ex){
             throw new ModelNotFoundException();
         }
