@@ -58,6 +58,7 @@ class FooterModel extends Model
         'right_links',
         'link_content',
         'file',
+        'og_image'
     ];
 
     public $fromStrToJson = [

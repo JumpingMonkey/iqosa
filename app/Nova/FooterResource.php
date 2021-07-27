@@ -125,6 +125,9 @@ class FooterResource extends Resource
                 Tab::make('Блок с куки', [
                     Trix::make('Текст блока с куки', 'cookie_text')->hideFromIndex(),
                     Text::make('Текст кнопки', 'cookie_btn_text')->hideFromIndex(),
+                ]),
+                Tab::make('OpenGraph', [
+                    MediaLibrary::make('og:image', 'og_image')->hideFromIndex()
                 ])
 
 
