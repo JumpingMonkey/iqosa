@@ -24,7 +24,7 @@
 
     <!-- Custom Meta Data -->
     @include('nova::partials.meta')
-
+    <link rel="icon" type="image/png" href="{{ asset('/img/favicon.png') }} ">
     <!-- Theme Styles -->
     @foreach(\Laravel\Nova\Nova::themeStyles() as $publicPath)
         <link rel="stylesheet" href="{{ $publicPath }}">
