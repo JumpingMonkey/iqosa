@@ -23,7 +23,7 @@ class CreateArticlesTable extends Migration
             $table->string('main_picture')->nullable();
             $table->json('authors');
             $table->json('subjects');
-            $table->text('content');
+            $table->json('content');
 
 
             $table->timestamps();
