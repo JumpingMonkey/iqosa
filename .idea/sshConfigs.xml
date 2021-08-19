@@ -2,7 +2,10 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="backiqosa.staj.fun" id="4e94e167-9dcd-4c3f-ab6d-80c2bb186a9c" keyPath="C:\Users\admin_hp1\Desktop\23priv.ppk" port="22" customName="iqosa" nameFormat="CUSTOM">
+      <sshConfig connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="backiqosa.staj.fun" id="4e94e167-9dcd-4c3f-ab6d-80c2bb186a9c" keyPath="C:\stajOpenSsh.ppk" port="22" customName="iqosa" nameFormat="CUSTOM" username="root">
+        <option name="customName" value="iqosa" />
+      </sshConfig>
+      <sshConfig connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="backiqosa.staj.fun" id="ff02051c-9acb-4803-818c-1030b0c80833" keyPath="C:\Users\admin_hp1\Desktop\23priv.ppk" port="22" customName="iqosa" nameFormat="CUSTOM">
         <option name="customName" value="iqosa" />
       </sshConfig>
     </configs>

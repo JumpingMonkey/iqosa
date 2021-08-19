@@ -17,6 +17,8 @@
         "laravel/framework": "^8.40",
         "laravel/nova": "*",
         "laravel/tinker": "^2.5",
+        "optimistdigital/nova-sortable": "^2.3",
+        "spatie/eloquent-sortable": "^4.0",
         "spatie/laravel-translatable": "^4.6",
         "whitecube/nova-flexible-content": "^0.2.8"
     },
