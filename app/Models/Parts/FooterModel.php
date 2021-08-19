@@ -2,7 +2,7 @@
 
 namespace App\Models\Parts;
 
-use Anrail\NovaMediaLibraryTools\HasMediaToUrl;
+use App\Traits\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;

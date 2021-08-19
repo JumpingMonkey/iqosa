@@ -116,7 +116,6 @@
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/classic-o/nova-media-library" />
       <path value="$PROJECT_DIR$/vendor/whitecube/nova-flexible-content" />
-      <path value="$PROJECT_DIR$/vendor/anrail/nova-media-library-tools" />
       <path value="$PROJECT_DIR$/vendor/eminiarts/nova-tabs" />
       <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/vendor/swagger-api/swagger-ui" />

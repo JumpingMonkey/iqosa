@@ -2,9 +2,9 @@
 
 namespace App\Models\Pages;
 
-use Anrail\NovaMediaLibraryTools\HasMediaToUrl;
 use App\Models\MemberModel;
 use App\Models\ProjectModel;
+use App\Traits\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
