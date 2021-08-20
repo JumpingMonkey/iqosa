@@ -11,6 +11,7 @@ use App\Models\JoinPopupMessageModel;
 use App\Models\Pages\WorkWithYouPageModel;
 use App\Models\SayHiPopupMessageModel;
 use App\Models\WorkWithYouPopupMessageModel;
+use App\Services\SendMailService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -30,7 +31,7 @@ class PopupsController extends Controller
         $newClientMessage = new JoinPopupMessageModel($postData);
         $newClientMessage->save();
 
-//        SendMailService::sendEmailToAdmin('career',$postData);
+//        SendMailService::sendEmailToAdmin('join',$postData);
         return response()->json([
             'status' => 'success',
             'massage' => 'Request will be send!'
@@ -64,7 +65,7 @@ class PopupsController extends Controller
         $newClientMessage = new WorkWithYouPopupMessageModel($postData);
         $newClientMessage->save();
 
-//        SendMailService::sendEmailToAdmin('career',$postData);
+        SendMailService::sendEmailToAdmin('work',$postData);
         return response()->json([
             'status' => 'success',
             'massage' => 'Request will be send!'
