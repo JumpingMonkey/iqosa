@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Http\Requests\JoinPopupPostRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Models\EmailSetting;
 use function Symfony\Component\String\b;
@@ -32,34 +33,36 @@ class SendMailService
 //        });
 //    }
 
-    public static function sendEmailToAdmin($popup,$postData)
+    public static function sendEmailToAdmin($popup,$postData, JoinPopupPostRequest $request = null)
     {
         $emailSetting = SendMailService::config();
         switch ($popup){
-//            case 'career':
-//                $email = $emailSetting->email_for_career;
-//                $view = 'toAdminFromCareerPopup';
-//                break;
+            case 'sayHi':
+                $email = $emailSetting->email_for_say_hi;
+                $postData['clientMessage'] = $postData['message'];
+                $view = 'toAdminFromSayHi';
+                break;
             case 'work':
                 $email = $emailSetting->email_for_work;
                 $postData['clientMessage'] = $postData['message'];
                 $view = 'toAdminFromWorkWithYou';
                 break;
-//            case 'my-special':
-//                $email = $emailSetting->email_for_my_special;
-//                $view = 'toAdminFromMySpecialPopup';
-//                break;
-//            case 'consortium':
-//                $email = $emailSetting->email_for_career;
-//                $view = 'toAdminFromConsortiumPopup';
-//                break;
+            case 'join':
+                $email = $emailSetting->email_for_join;
+                $view = 'toAdminFromJoin';
+                break;
         }
-//        dd($postData);
-
-
-        Mail::send('email.'.$view, $postData, function($message) use ($emailSetting,$popup, $email) {
+        
+        Mail::send('email.'.$view, $postData, function($message) use ($emailSetting,$popup, $email, $request, $postData) {
             $message->to($email,$emailSetting->name)->subject($emailSetting->name.': New mail from the '.$popup.' popup!');
             $message->from($emailSetting->email_for_send,$emailSetting->name);
+
+            if(isset($postData['file'])) {
+                $message->attach($request->file('file')->getRealPath(), [
+                    'as' => $request->file('file')->getClientOriginalName(),
+                    'mime' => $request->file('file')->getMimeType()
+                ]);
+            }
         });
     }
 }

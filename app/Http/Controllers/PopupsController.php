@@ -31,7 +31,7 @@ class PopupsController extends Controller
         $newClientMessage = new JoinPopupMessageModel($postData);
         $newClientMessage->save();
 
-//        SendMailService::sendEmailToAdmin('join',$postData);
+        SendMailService::sendEmailToAdmin('join',$postData, $request);
         return response()->json([
             'status' => 'success',
             'massage' => 'Request will be send!'
@@ -51,7 +51,7 @@ class PopupsController extends Controller
         $newClientMessage = new SayHiPopupMessageModel($postData);
         $newClientMessage->save();
 
-//        SendMailService::sendEmailToAdmin('career',$postData);
+        SendMailService::sendEmailToAdmin('sayHi',$postData);
         return response()->json([
             'status' => 'success',
             'massage' => 'Request will be send!'
