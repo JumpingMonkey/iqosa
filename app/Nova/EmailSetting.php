@@ -60,7 +60,8 @@ class EmailSetting extends Resource
 
             Text::make('Email of message sender','email_for_send'),
             Text::make('Password (App Google)','password')
-                ->withMeta(['extraAttributes' => ['type' => 'password']]),
+                ->withMeta(['extraAttributes' => ['type' => 'password']])
+            ->hideFromIndex()->hideFromDetail(),
             Text::make('Name of message sender','name'),
         ];
     }

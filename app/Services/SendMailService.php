@@ -52,7 +52,7 @@ class SendMailService
                 $view = 'toAdminFromJoin';
                 break;
         }
-        
+
         Mail::send('email.'.$view, $postData, function($message) use ($emailSetting,$popup, $email, $request, $postData) {
             $message->to($email,$emailSetting->name)->subject($emailSetting->name.': New mail from the '.$popup.' popup!');
             $message->from($emailSetting->email_for_send,$emailSetting->name);
