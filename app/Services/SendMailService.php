@@ -19,6 +19,7 @@ class SendMailService
             "mail.mailers.smtp.password" => $emailSetting->password,
         ]);
         return $emailSetting;
+
     }
 
 //    public static function sendEmailToMySpecialUserRequest($model)
@@ -40,7 +41,7 @@ class SendMailService
 //                $view = 'toAdminFromCareerPopup';
 //                break;
             case 'work':
-                $email = $emailSetting->email_for_clients;
+                $email = $emailSetting->email_for_work;
                 $postData['clientMessage'] = $postData['message'];
                 $view = 'toAdminFromWorkWithYou';
                 break;
