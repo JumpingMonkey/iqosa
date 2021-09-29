@@ -5,11 +5,17 @@ namespace App\Models;
 use App\Traits\HasMediaToUrl;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Translatable\HasTranslations;
 
 class MemberModel extends Model
 {
-    use HasFactory, HasTranslations, HasMediaToUrl;
+    use HasFactory, HasTranslations, HasMediaToUrl, SortableTrait;
+
+    public $sortable = [
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
+    ];
 
     protected $table = "members";
 

@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
 class MemberResource extends Resource
 {
+
+    use HasSortableRows;
     /**
      * The model the resource corresponds to.
      *
