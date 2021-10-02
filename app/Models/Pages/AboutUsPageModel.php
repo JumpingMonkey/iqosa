@@ -193,6 +193,7 @@ class AboutUsPageModel extends Model
 
             $this->getMembers();
             $data = $this->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+
             if (array_key_exists('main_video', $data)){
                 $data['main_video'] = $this->getOneMedia($data['main_video']);
             };

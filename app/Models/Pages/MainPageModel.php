@@ -12,10 +12,6 @@ use Spatie\Translatable\HasTranslations;
 
 class MainPageModel extends Model
 {
-
-
-
-
     use HasFactory, HasTranslations, HasMediaToUrl;
 
     protected $table = "main_pages";
@@ -108,18 +104,31 @@ class MainPageModel extends Model
     {
         $memberIds = [];
         $membersData = [];
+        $membersDataMobOrder = [];
         $membersObject = $this["members_data"];
+
         foreach ($membersObject as $member) {
             $memberIds[] = $member->attributes->member;
         }
+
         $members = MemberModel::whereIn('id', $memberIds)->get();
+        $membersMobOrder = MemberModel::whereIn('id', $memberIds)->orderBy('sort_order')->get();
+
+
         foreach ($membersObject as $key => $member) {
             $membersData[] = $members->first(function ($value) use ($member) {
                 return $value->id === (int)$member->attributes->member;
             })
-                ->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at']);
+                ->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at', 'sort_order']);
         }
+
+        foreach ($membersMobOrder as $key => $member) {
+            $membersDataMobOrder[] = $member->getAllWithMediaUrlWithout(['id', 'created_at', 'updated_at', 'sort_order']);
+
+        }
+
         $this->team_members = $membersData;
+        $this->team_members_mob = $membersDataMobOrder;
     }
 
     public static function normalizeData($object){
