@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use OptimistDigital\NovaSortable\Traits\HasSortableRows;
@@ -103,7 +104,18 @@ class ProjectResource extends Resource
                     Text::make('Первый текст для четвертой картинки', 'fourth_image_text1'),
                     Text::make('Второй текст для четвертой картинки', 'fourth_image_text2'),
                     Trix::make('Текст в центре галереи', 'center_text'),
-                ])->button('Добавить блок'),
+                ])
+                ->addLayout('Текстовый блок', 'text_block', [
+                    Flexible::make('Текстовый блок', 'text_block')
+                        ->addLayout('Заголовок', 'title', [
+                            Text::make('Заголовок', 'title'),
+                            ])
+                        ->addLayout('Абзац', 'paragraph', [
+                            Textarea::make('Абзац', 'paragraph'),
+                        ])->button('Добавить блок')
+
+                ])
+                ->button('Добавить блок'),
 
 //          BelongsToMany::make('Members'),
 

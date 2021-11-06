@@ -103,6 +103,14 @@ class ProjectModel extends Model implements Sortable
                 if ($titleLine['layout'] == 'gallery') {
                     $content[] = [$titleLine['layout'] => $titleLine["attributes"]];
                 }
+                if ($titleLine['layout'] == 'text_block') {
+//                    dd($titleLine);
+                    $textBlock = [];
+                    foreach ($titleLine["attributes"]['text_block'] as $key => $item){
+                        $textBlock[] = $item["attributes"];
+                    }
+                    $content[] = ['text_block' => $textBlock];
+                }
             }
             $object["content"] = $content;
         }
