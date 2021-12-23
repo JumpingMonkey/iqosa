@@ -72,7 +72,8 @@ class MediaPageResource extends Resource
             Flexible::make('Изображения', 'media_images')
                 ->addLayout('Изображение', 'media_image', [
                     MediaLibrary::make('Изображение', 'picture')->hideFromIndex(),
-                    MediaLibrary::make('Изображение при наведении', 'hover_picture')->hideFromIndex()
+                    MediaLibrary::make('Изображение при наведении', 'hover_picture')->hideFromIndex(),
+                    Text::make('Ссылка', 'link')->hideFromIndex(),
                 ])
                 ->hideFromIndex()
                 ->button('Добавить изображение'),
