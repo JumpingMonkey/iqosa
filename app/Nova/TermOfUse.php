@@ -2,7 +2,7 @@
 
 namespace App\Nova;
 
-use App\Models\Pages\PrivacyPolicyPageModel;
+
 use Digitalcloud\MultilingualNova\Multilingual;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
@@ -11,14 +11,14 @@ use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 
-class PrivacyPolicyPageResource extends Resource
+class TermOfUse extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = PrivacyPolicyPageModel::class;
+    public static $model = \App\Models\Pages\TermOfUse::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -26,9 +26,12 @@ class PrivacyPolicyPageResource extends Resource
      * @var string
      */
     public static $title = 'id';
-
-    public static $priority = 13;
-
+    public static $priority = 14;
+    public static $group = 'Pages';
+    public static function label()
+    {
+        return 'Term of use';
+    }
     /**
      * The columns that should be searched.
      *
@@ -37,13 +40,6 @@ class PrivacyPolicyPageResource extends Resource
     public static $search = [
         'id',
     ];
-
-    public static $group = 'Pages';
-
-    public static function label()
-    {
-        return 'Privacy Policy';
-    }
 
     /**
      * Get the fields displayed by the resource.
@@ -54,8 +50,8 @@ class PrivacyPolicyPageResource extends Resource
     public function fields(Request $request)
     {
         return [
-            Multilingual::make('Language'),
             ID::make(__('ID'), 'id')->sortable(),
+            Multilingual::make('Language'),
 
             Text::make('SEO-заголовок', 'seo_title')->hideFromIndex(),
             Text::make('Мета-описание', 'meta_description')->hideFromIndex(),
@@ -72,8 +68,6 @@ class PrivacyPolicyPageResource extends Resource
                 ->addLayout('Абзац', 'paragraph', [
                     Trix::make('Текст', 'text')->alwaysShow(),
                 ])->button('Добавить строку'),
-
-
         ];
     }
 

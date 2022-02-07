@@ -13,6 +13,7 @@ use App\Http\Controllers\Pages\PrivacyPolicyPageController;
 use App\Http\Controllers\Pages\ProjectPageController;
 use App\Http\Controllers\Pages\ProjectsPageController;
 use App\Http\Controllers\Pages\SayHiPageController;
+use App\Http\Controllers\Pages\TermOfUse;
 use App\Http\Controllers\Pages\WorkWithYouPageController;
 use App\Http\Controllers\PagesPartsController;
 use App\Http\Controllers\PopupsController;
@@ -63,6 +64,7 @@ Route::middleware('locale')->group(function (){
     Route::get('/work_with_you', [WorkWithYouPageController::class, 'index']);
     Route::get('/404', [Error404PageController::class, 'index']);
     Route::get('/privacy_policy', [PrivacyPolicyPageController::class, 'index']);
+    Route::get('/term_of_use', [TermOfUse::class, 'index']);
     Route::get('/articles', [ArticleController::class , 'getArticleList']);
     Route::get('/articles/{slug}', [ArticleController::class , 'getOneArticle']);
     Route::get('/projects', [ProjectController::class , 'getProjectList']);
