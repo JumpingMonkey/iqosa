@@ -74,6 +74,7 @@ class MediaPageResource extends Resource
                     MediaLibrary::make('Изображение', 'picture')->hideFromIndex(),
                     MediaLibrary::make('Изображение при наведении', 'hover_picture')->hideFromIndex(),
                     Text::make('Ссылка', 'link')->hideFromIndex(),
+                    Text::make('Цвет фона', 'bg_color')->hideFromIndex(),
                 ])
                 ->hideFromIndex()
                 ->button('Добавить изображение'),
