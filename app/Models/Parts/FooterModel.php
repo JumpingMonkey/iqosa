@@ -35,6 +35,7 @@ class FooterModel extends Model
         'developed_by_link',
         'cookie_text',
         'cookie_btn_text',
+        'term_label',
     ];
 
     public $translatable = [
@@ -52,6 +53,7 @@ class FooterModel extends Model
         'developed_label',
         'cookie_text',
         'cookie_btn_text',
+        'term_label',
     ];
 
     public $mediaToUrl = [

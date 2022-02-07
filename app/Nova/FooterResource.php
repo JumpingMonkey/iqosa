@@ -115,6 +115,9 @@ class FooterResource extends Resource
                     Text::make('Текст ссылки на политику', 'politic_label')->hideFromIndex(),
                     Text::make('Ссылка на политику', 'politic_link')->hideFromIndex(),
 
+                    Text::make('Текст ссылки на правила', 'term_label')->hideFromIndex(),
+                    Text::make('Ссылка на правила', 'term_link')->hideFromIndex(),
+
                     Flexible::make('Социальные сети', 'social_links')
                         ->addLayout('Социальная сеть', 'social_item', [
                             Text::make('Название соцсети', 'social_name'),
