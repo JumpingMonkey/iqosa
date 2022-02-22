@@ -52,8 +52,8 @@ class EmailSetting extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Heading::make('Settings for the message recipient',''),
 
-            Text::make('Email for the Join popup','email_for_join'),
-            Text::make('Email for the Work with you popup','email_for_work'),
+            Text::make('Email for the Work with you popup','email_for_join'),
+            Text::make('Email for the Join popup','email_for_work'),
             Text::make('Email for the Say hi popup','email_for_say_hi'),
 
             Heading::make('Setting for the message sender'),
